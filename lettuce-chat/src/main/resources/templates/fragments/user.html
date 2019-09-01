@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <div th:fragment="profile(userToProfile)">
+    <a th:href="'/users/' + ${userToProfile.id}">
+      <h1 th:text="${userToProfile.username}"></h1>
+    </a>
+    <h3 th:text="${userToProfile.firstName}"></h3>
+    <h3 th:text="${userToProfile.lastName}"></h3>
+    <img th:src="${userToProfile.imgUrl}" th:alt="${userToProfile.username}">
+    <h3 th:text="${userToProfile.dietaryRestriction}"></h3>
+    <h3 th:text="${userToProfile.bio}"></h3>
+  </div>
+
+</html>
