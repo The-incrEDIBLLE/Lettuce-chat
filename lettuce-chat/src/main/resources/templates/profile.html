@@ -6,13 +6,9 @@
 </head>
 <body>
   <div th:replace="fragments/nav :: nav"></div>
-  <h1>Profile here</h1>
-
-  <h3 th:text="${viewedUser.username}"></h3>
-  <h3 th:text="${viewedUser.firstName}"></h3>
-  <h3 th:text="${viewedUser.lastName}"></h3>
-  <img th:src="${viewedUser.imgUrl}" th:alt="${viewedUser.username}">
-  <h3 th:text="${viewedUser.dietaryRestriction}"></h3>
-  <h3 th:text="${viewedUser.bio}"></h3>
+  <div class="container">
+    <h1>Profile here</h1>
+    <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
+  </div>
 </body>
 </html>

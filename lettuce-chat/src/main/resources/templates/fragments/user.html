@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-  <body>
-    <div th:replace="fragments/nav :: nav"></div>
-    <h3 th:text="${viewedUser.username}"></h3>
-    <h3 th:text="${viewedUser.firstName}"></h3>
-    <h3 th:text="${viewedUser.lastName}"></h3>
-    <img th:src="${viewedUser.imgUrl}" th:alt="${viewedUser.username}">
-    <h3 th:text="${viewedUser.dietaryRestriction}"></h3>
-    <h3 th:text="${viewedUser.bio}"></h3>
-    <!--    <div th:replace="fragments/footer :: footer"></div>-->
-  </body>
+
+  <div th:fragment="profile(userToProfile)">
+    <a th:href="'/users/' + ${userToProfile.id}">
+      <h1 th:text="${userToProfile.username}"></h1>
+    </a>
+    <h3 th:text="${userToProfile.firstName}"></h3>
+    <h3 th:text="${userToProfile.lastName}"></h3>
+    <img th:src="${userToProfile.imgUrl}" th:alt="${userToProfile.username}">
+    <h3 th:text="${userToProfile.dietaryRestriction}"></h3>
+    <h3 th:text="${userToProfile.bio}"></h3>
+  </div>
+
 </html>

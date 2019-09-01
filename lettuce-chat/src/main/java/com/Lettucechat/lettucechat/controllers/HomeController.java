@@ -15,14 +15,13 @@ public class HomeController {
   @Autowired
   ApplicationUserRepository applicationUserRepository;
 
-  // TODO: fix this
+  // TODO: when logged in, go to match page
   @GetMapping("/")
   public String getRoot(Principal p, Model m){
     ApplicationUser applicationUser = null;
     if(p != null){
       applicationUser = applicationUserRepository.findByUsername(p.getName());
       m.addAttribute("viewedUser", applicationUser);
-//      return "profile";
     }
     m.addAttribute("user", p);
     return "home";

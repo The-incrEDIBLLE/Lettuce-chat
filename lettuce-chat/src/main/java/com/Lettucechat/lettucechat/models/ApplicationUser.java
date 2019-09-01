@@ -3,13 +3,9 @@ package com.Lettucechat.lettucechat.models;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -24,7 +20,14 @@ public class ApplicationUser implements UserDetails {
   String imgUrl;
   String bio;
   String dietaryRestriction;
-//  List<Chat> chats;
+
+//  @ManyToMany
+//      @JoinTable(
+//          name = "",
+//          joinColumns = {},
+//          inverseJoinColumns = {}
+//      )
+//  Set<Chat> chats;
 
   public ApplicationUser(){}
   public ApplicationUser(String username, String password, String firstName, String lastName, String imgUrl,
@@ -37,7 +40,6 @@ public class ApplicationUser implements UserDetails {
     this.imgUrl = imgUrl;
     this.bio = bio;
     this.dietaryRestriction = dietaryRestriction;
-//    this.chats = new ArrayList<>();
   }
 
   @Override
@@ -69,10 +71,6 @@ public class ApplicationUser implements UserDetails {
     return dietaryRestriction;
   }
 
-//  public List<Chat> getChats() {
-//    return chats;
-//  }
-
   @Override
   public String getPassword() {
     return this.password;
@@ -102,5 +100,7 @@ public class ApplicationUser implements UserDetails {
   public boolean isEnabled() {
     return true;
   }
+
+  //TODO: add chat function
 }
 
