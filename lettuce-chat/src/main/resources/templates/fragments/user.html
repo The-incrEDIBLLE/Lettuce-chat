@@ -6,8 +6,12 @@
 </head>
   <body>
     <div th:replace="fragments/nav :: nav"></div>
-
-
-<!--    <div th:replace="fragments/footer :: footer"></div>-->
+    <h3 th:text="${viewedUser.username}"></h3>
+    <h3 th:text="${viewedUser.firstName}"></h3>
+    <h3 th:text="${viewedUser.lastName}"></h3>
+    <img th:src="${viewedUser.imgUrl}" th:alt="${viewedUser.username}">
+    <h3 th:text="${viewedUser.dietaryRestriction}"></h3>
+    <h3 th:text="${viewedUser.bio}"></h3>
+    <!--    <div th:replace="fragments/footer :: footer"></div>-->
   </body>
 </html>

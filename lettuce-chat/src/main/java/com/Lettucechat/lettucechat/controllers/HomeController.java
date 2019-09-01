@@ -21,10 +21,10 @@ public class HomeController {
     ApplicationUser applicationUser = null;
     if(p != null){
       applicationUser = applicationUserRepository.findByUsername(p.getName());
-//      m.addAttribute("viewedUser", applicationUser);
+      m.addAttribute("viewedUser", applicationUser);
 //      return "profile";
     }
-    m.addAttribute("user", applicationUser);
+    m.addAttribute("user", p);
     return "home";
   }
 
