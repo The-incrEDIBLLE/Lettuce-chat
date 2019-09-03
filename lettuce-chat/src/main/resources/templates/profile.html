@@ -12,11 +12,17 @@
   </div>
   <div>
     <form method="GET" th:action="${'/users'}">
-
       <input type="submit" value="View Matches"/>
-
-
     </form>
   </div>
+
+  need edit button
+  <div>
+    <form method="PUT" th:action="/profile">
+      <input type="hidden" value="${viewedUser.id}">
+      <input type="submit" value="edit profile"/>
+    </form>
+  </div>
+
 </body>
 </html>
