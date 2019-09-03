@@ -15,6 +15,7 @@ import java.security.Principal;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class ChatController {
@@ -34,14 +35,16 @@ public class ChatController {
 //        return new RedirectView("/users/" + currentUser.getId());
 //    }
 
+    // TODO: check followed users
     @GetMapping("/users")
-    public String getAllUsers(Model m, Principal p){
+    public String getRandomUser(Model m, Principal p){
 
         ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
         List<ApplicationUser> allUsers = applicationUserRepository.findAll();
         List<ApplicationUser> matchedUsers = new ArrayList<>();
+        Set<ApplicationUser> followedUsers = loggedInUser.getFollowedUsers();
         for (ApplicationUser user: allUsers){
-            if (user.getDietaryRestriction().equals(loggedInUser.getDietaryRestriction())) {
+            if (user.getDietaryRestriction().equals(loggedInUser.getDietaryRestriction()) && !followedUsers.contains(user)) {
                 if (loggedInUser != user) {
                     matchedUsers.add(user);
                 }
