@@ -9,20 +9,25 @@
   <div class="container">
     <h1>Profile here</h1>
     <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
-  </div>
-  <div>
-    <form method="GET" th:action="${'/users'}">
-      <input type="submit" value="View Matches"/>
-    </form>
-  </div>
 
-<!--  need edit button-->
-  <div>
-    <form method="PUT" th:action="/profile">
-      <input type="hidden" value="${viewedUser.id}">
-      <input type="submit" value="edit profile"/>
-    </form>
-  </div>
+    <div>
+      <form method="GET" th:action="${'/users'}">
+        <input type="submit" value="View Matches"/>
+      </form>
+    </div>
 
+    <div>
+      <a href="/profile/edit"><button>edit</button></a>
+    </div>
+
+    <div>
+      <form th:method="DELETE" action="/profile">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
+        <input type="submit" value="delete profile"/>
+      </form>
+    </div>
+
+  </div>
 </body>
 </html>
