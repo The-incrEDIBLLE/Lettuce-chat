@@ -23,9 +23,9 @@ public class ApplicationUser implements UserDetails {
 
   @ManyToMany
       @JoinTable(
-          name = "user-chat",
-          joinColumns = {@JoinColumn(name="user")},
-          inverseJoinColumns = {@JoinColumn(name="chat")}
+          name = "userChat",
+          joinColumns = {@JoinColumn(name="userId")},
+          inverseJoinColumns = {@JoinColumn(name="chatId")}
       )
   Set<Chat> chats;
 
