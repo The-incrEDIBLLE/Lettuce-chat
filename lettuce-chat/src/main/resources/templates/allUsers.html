@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+<h3>All Users</h3>
+
+<div th:each="userprofile : ${allusers}">
+    <p>
+        <a th:href="${ '/users/' + userprofile.id}">View Profile <span th:text="${userprofile.username}"></span></a>
+    </p>
+    <ul style="list-style-type:none">
+        <li><b>First Name:</b> <span th:id="${userprofile.firstName}" th:text="${userprofile.firstName}"></span></li>
+        <li><b>Last Name:</b> <span th:id="${userprofile.lastName}" th:text="${userprofile.lastName}"></span></li>
+        <li><b>Bio:</b> <span th:id="${userprofile.dietaryRestriction}" th:text="${userprofile.dietaryRestriction}"></span></li>
+    </ul>
+</div>
+
+
+</body>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Profile</title>
@@ -9,6 +9,14 @@
   <div class="container">
     <h1>Profile here</h1>
     <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
+  </div>
+  <div>
+    <form method="GET" th:action="${'/users'}">
+
+      <input type="submit" value="View Matches"/>
+
+
+    </form>
   </div>
 </body>
 </html>

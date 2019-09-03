@@ -16,6 +16,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ApplicationUserController {
@@ -56,6 +57,27 @@ public class ApplicationUserController {
     m.addAttribute("user", p);
     return "profile";
   }
+  @GetMapping("/users")
+  public String getAllUsers(Model m, Principal p){
 
+    ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+    List<ApplicationUser> allUsers = applicationUserRepository.findAll();
+    List<ApplicationUser> matchedUsers = new ArrayList<>();
+    for (ApplicationUser user: allUsers){
+      if (user.getDietaryRestriction().equals(loggedInUser.getDietaryRestriction())) {
+        if (loggedInUser != user) {
+          matchedUsers.add(user);
+        }
+      }
+    }
 
+    int numberOfMatches = matchedUsers.size();
+    m.addAttribute("matchedUser", matchedUsers.get((int)(Math.random() * numberOfMatches)));
+    return "randomUser";
+
+  }
+  @GetMapping("/chat/create")
+  public String getChat(){
+    return "chatbox";
+  }
 }
