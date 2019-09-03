@@ -5,6 +5,7 @@
       Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a>
       <a href="/">Home</a>
       <a class="nav-link" href="/logout">Logout</a>
+      <a class="nav-link" href="/mychats">My Chats</a>
     </nav>
     <nav th:unless="${user}">
       <a href="/">Home</a>
@@ -13,3 +14,5 @@
     </nav>
   </div>
 </html>
+
+<!--<h3>Sorry for the inconvenience, <span th:text="${user.name}"></span>! This page is temporarily down. Try again later.</h3>-->
