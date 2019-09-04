@@ -103,8 +103,6 @@ public class ApplicationUserController {
     return "allUserChats";
   }
 
-  // TODO: delete user and their chats
-
   @DeleteMapping("/profile")
   public RedirectView deleteUser(long viewedUserId) {
     applicationUserRepository.deleteById(viewedUserId);

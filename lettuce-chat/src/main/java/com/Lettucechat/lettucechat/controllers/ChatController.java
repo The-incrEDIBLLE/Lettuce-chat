@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.awt.*;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,6 @@ public class ChatController {
     ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
     Chat newChat = new Chat(subject);
     chatRepository.save(newChat);
-    System.out.println("--------------------------" + newChat.getId());
     currentUser.addFollowing(messageToUser);
     currentUser.addChat(newChat);
     applicationUserRepository.save(currentUser);
@@ -76,14 +74,13 @@ public class ChatController {
 
   }
 
-  @GetMapping("/chat/{id}") // Changed from "/chat/create/{id}"
+  @GetMapping("/chat/{id}")
   public String getChat(@PathVariable long id, Principal p, Model m) {
     Chat ch = chatRepository.findById(id).get();
     m.addAttribute("chat", ch);
     m.addAttribute("messages", ch.getMessages());
     m.addAttribute("participants", ch.getParticipants());
     return "chatbox";
-
   }
 
 }

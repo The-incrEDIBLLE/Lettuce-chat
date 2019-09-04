@@ -17,7 +17,6 @@
 </div>
 <h4>Type a message...</h4>
 
-<!--Changed from "${'/chat/create/' + messageToUser.id}"-->
     <form method="POST" th:action="${'/chat/' + chat.id}">
       <fieldset>
         <label for="subject">Subject: </label><input name="subject" id="subject" type="text"/>

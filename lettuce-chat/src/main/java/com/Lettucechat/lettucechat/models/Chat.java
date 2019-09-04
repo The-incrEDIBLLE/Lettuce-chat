@@ -11,8 +11,6 @@ public class Chat {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
   String subject;
-//  long creatorId;
-//  long receiverId;
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
@@ -23,35 +21,26 @@ public class Chat {
     participants.add(participant);
   }
   public Chat(){}
+
   public Chat(String subject){
     this.subject = subject;
-    //this.creatorId = creatorId;
-    //this.receiverId = receiverId;
     this.messages = new ArrayList<>();
   }
 
   public Set<ApplicationUser> getParticipants() {
-    return participants;
+    return this.participants;
   }
 
   public long getId() {
     return id;
   }
 
-//  public long getCreatorId() {
-//    return creatorId;
-//  }
-//
-//  public long getReceiverId() {
-//    return receiverId;
-//  }
-
   public String getSubject() {
-    return subject;
+    return this.subject;
   }
 
   public List<Message> getMessages() {
-    return messages;
+    return this.messages;
   }
 
   public void addMessage(Message msg){
