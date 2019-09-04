@@ -34,12 +34,18 @@ public class ApplicationUserController {
   public RedirectView createUser(String username, String password, String firstName, String lastName, String imgUrl,
                                  String bio,
                                  String dietaryRestriction){
-    ApplicationUser newUser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, imgUrl,
-        bio, dietaryRestriction);
-    applicationUserRepository.save(newUser);
-    Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
-    SecurityContextHolder.getContext().setAuthentication(authentication);
-    return new RedirectView("/profile");
+    ApplicationUser alreadyExists = applicationUserRepository.findByUsername(username);
+    if(alreadyExists == null) {
+      ApplicationUser newUser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, imgUrl,
+          bio, dietaryRestriction);
+      applicationUserRepository.save(newUser);
+      Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
+      SecurityContextHolder.getContext().setAuthentication(authentication);
+      return new RedirectView("/profile");
+    } else {
+      // TODO: send modal alert for username already exists
+      return new RedirectView("/");
+    }
   }
 
   @GetMapping("/profile")
@@ -65,11 +71,10 @@ public class ApplicationUserController {
 
   @PutMapping("/profile/edit")
   public String updateUser(Model m, Principal p, long viewedUserId, String firstName, String lastName,
-                           String password, String imgUrl, String bio, String dietaryRestriction){
+                           String imgUrl, String bio, String dietaryRestriction){
     ApplicationUser applicationUser = applicationUserRepository.findById(viewedUserId).get();
     applicationUser.setFirstName(firstName);
     applicationUser.setLastName(lastName);
-    applicationUser.setPassword(encoder.encode(password));
     applicationUser.setImgUrl(imgUrl);
     applicationUser.setBio(bio);
     applicationUser.setDietaryRestriction(dietaryRestriction);

@@ -1,3 +1,46 @@
-/*.background {*/
-/*    background: url(/images/background.jpg);*/
-/*}*/
+* {
+  box-sizing: border-box;
+}
+
+div nav {
+  background-color: rgb(204, 235, 204);
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-flex;
+  line-height: 60px;
+
+}
+
+nav ul li a {
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  color: rgba(9, 65, 27, 0.5);
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  -moz-transition: none;
+  -webkit-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+/* .nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+} */
+
+main {
+  height: 100vh;
+  margin-top: -20px;
+  background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("/images/background.jpg") no-repeat center;
+  background-size: 120%, 100%;
+  text-align: center;
+}
+
