@@ -30,6 +30,10 @@ public class Chat {
     this.messages = new ArrayList<>();
   }
 
+  public Set<ApplicationUser> getParticipants() {
+    return participants;
+  }
+
   public long getId() {
     return id;
   }

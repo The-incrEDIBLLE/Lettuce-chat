@@ -2,18 +2,16 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Lettuce Chat</title>
-
+  <meta charset="UTF-8">
+  <title>Lettuce Chat</title>
 </head>
-<body th:style="'background:url(/images/food.jpeg)800px;'">
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
-    <h1>I'm home</h1>
-
-
-</body>
-<footer>
-    <div th:replace="fragments/footer :: footer"></div>
-
-</footer>
+    <main>
+      <h1>Lettuce Chat</h1>
+      <p>Description</p>
+    </main>
+<!--    <footer th:replace="fragments/footer :: footer"></footer>-->
+  </body>
 </html>

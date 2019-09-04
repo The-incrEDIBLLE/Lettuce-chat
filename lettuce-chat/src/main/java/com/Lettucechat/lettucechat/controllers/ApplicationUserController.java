@@ -2,6 +2,7 @@ package com.Lettucechat.lettucechat.controllers;
 
 import com.Lettucechat.lettucechat.models.ApplicationUser;
 import com.Lettucechat.lettucechat.models.ApplicationUserRepository;
+import com.Lettucechat.lettucechat.models.Chat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class ApplicationUserController {
@@ -33,12 +36,18 @@ public class ApplicationUserController {
   public RedirectView createUser(String username, String password, String firstName, String lastName, String imgUrl,
                                  String bio,
                                  String dietaryRestriction){
-    ApplicationUser newUser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, imgUrl,
-        bio, dietaryRestriction);
-    applicationUserRepository.save(newUser);
-    Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
-    SecurityContextHolder.getContext().setAuthentication(authentication);
-    return new RedirectView("/profile");
+    ApplicationUser alreadyExists = applicationUserRepository.findByUsername(username);
+    if(alreadyExists == null) {
+      ApplicationUser newUser = new ApplicationUser(username, encoder.encode(password), firstName, lastName, imgUrl,
+          bio, dietaryRestriction);
+      applicationUserRepository.save(newUser);
+      Authentication authentication = new UsernamePasswordAuthenticationToken(newUser, null, new ArrayList<>());
+      SecurityContextHolder.getContext().setAuthentication(authentication);
+      return new RedirectView("/profile");
+    } else {
+      // TODO: send modal alert for username already exists
+      return new RedirectView("/");
+    }
   }
 
   @GetMapping("/profile")
@@ -64,11 +73,10 @@ public class ApplicationUserController {
 
   @PutMapping("/profile/edit")
   public String updateUser(Model m, Principal p, long viewedUserId, String firstName, String lastName,
-                           String password, String imgUrl, String bio, String dietaryRestriction){
+                           String imgUrl, String bio, String dietaryRestriction){
     ApplicationUser applicationUser = applicationUserRepository.findById(viewedUserId).get();
     applicationUser.setFirstName(firstName);
     applicationUser.setLastName(lastName);
-    applicationUser.setPassword(encoder.encode(password));
     applicationUser.setImgUrl(imgUrl);
     applicationUser.setBio(bio);
     applicationUser.setDietaryRestriction(dietaryRestriction);
@@ -83,6 +91,31 @@ public class ApplicationUserController {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     m.addAttribute("viewedUser", applicationUser);
     return "editProfile";
+  }
+
+  @GetMapping("/mychats")
+  public String getUsersChats(Model m, Principal p){
+    ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+    Set<Chat> chats = loggedInUser.getChats();
+    //List<Message> messages = new ArrayList<>();
+    Set<ApplicationUser> participants = new HashSet<>();
+//    Set<ApplicationUser> recipients = new HashSet<>();
+
+    //for (Chat chat: chats){
+//      //messages.addAll(chat.getMessages());
+    //participants.addAll(chat.getParticipants());
+    //for (ApplicationUser participant: participants){
+//        if (participant.getId() != loggedInUser.getId()){
+//          recipients.add(participant);
+//        }
+    //System.out.println(participant.getUsername());
+    //}
+
+    //}
+    m.addAttribute("chats", chats);
+    //m.addAttribute("recipient", recipients);
+    m.addAttribute("user", p);
+    return "allUserChats";
   }
 
   // TODO: delete user and their chats
