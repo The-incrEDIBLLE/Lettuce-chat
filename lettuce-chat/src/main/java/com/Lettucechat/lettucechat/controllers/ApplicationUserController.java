@@ -97,23 +97,8 @@ public class ApplicationUserController {
   public String getUsersChats(Model m, Principal p){
     ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
     Set<Chat> chats = loggedInUser.getChats();
-    //List<Message> messages = new ArrayList<>();
-    Set<ApplicationUser> participants = new HashSet<>();
-//    Set<ApplicationUser> recipients = new HashSet<>();
 
-    //for (Chat chat: chats){
-//      //messages.addAll(chat.getMessages());
-    //participants.addAll(chat.getParticipants());
-    //for (ApplicationUser participant: participants){
-//        if (participant.getId() != loggedInUser.getId()){
-//          recipients.add(participant);
-//        }
-    //System.out.println(participant.getUsername());
-    //}
-
-    //}
     m.addAttribute("chats", chats);
-    //m.addAttribute("recipient", recipients);
     m.addAttribute("user", p);
     return "allUserChats";
   }
