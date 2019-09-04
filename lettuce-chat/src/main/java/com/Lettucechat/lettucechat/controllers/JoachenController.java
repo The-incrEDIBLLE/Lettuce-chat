@@ -15,10 +15,10 @@ public class JoachenController {
     @Autowired
     ChatRepository chatRepository;
 
-    @GetMapping("/mychats")
-    public String getMyChatsPage(){
-        return "allUserChats";
-    }
+//    @GetMapping("/mychats")
+//    public String getMyChatsPage(){
+//        return "allUserChats";
+//    }
 
     @GetMapping("/team")
     public String getTeamPage(){

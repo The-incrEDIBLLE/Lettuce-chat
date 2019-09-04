@@ -2,6 +2,7 @@ package com.Lettucechat.lettucechat.controllers;
 
 import com.Lettucechat.lettucechat.models.ApplicationUser;
 import com.Lettucechat.lettucechat.models.ApplicationUserRepository;
+import com.Lettucechat.lettucechat.models.Chat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 @Controller
 public class ApplicationUserController {
@@ -86,6 +89,31 @@ public class ApplicationUserController {
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     m.addAttribute("viewedUser", applicationUser);
     return "editProfile";
+  }
+
+  @GetMapping("/mychats")
+  public String getUsersChats(Model m, Principal p){
+    ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+    Set<Chat> chats = loggedInUser.getChats();
+    //List<Message> messages = new ArrayList<>();
+    Set<ApplicationUser> participants = new HashSet<>();
+//    Set<ApplicationUser> recipients = new HashSet<>();
+
+    //for (Chat chat: chats){
+//      //messages.addAll(chat.getMessages());
+    //participants.addAll(chat.getParticipants());
+    //for (ApplicationUser participant: participants){
+//        if (participant.getId() != loggedInUser.getId()){
+//          recipients.add(participant);
+//        }
+    //System.out.println(participant.getUsername());
+    //}
+
+    //}
+    m.addAttribute("chats", chats);
+    //m.addAttribute("recipient", recipients);
+    m.addAttribute("user", p);
+    return "allUserChats";
   }
 
   // TODO: delete user and their chats
