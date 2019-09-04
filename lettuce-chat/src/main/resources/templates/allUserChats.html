@@ -12,8 +12,6 @@
 
     <li>
      <span th:each="participant : ${chat.participants}">
-
-<!--       changed href from {'/chat/create/' + participant.id}"-->
        <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}"
           th:text="${participant.username}"></a></span>
     </li>
