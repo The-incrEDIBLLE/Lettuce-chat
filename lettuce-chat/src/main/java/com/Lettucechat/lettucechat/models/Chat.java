@@ -11,8 +11,8 @@ public class Chat {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
   String subject;
-  long creatorId;
-  long receiverId;
+//  long creatorId;
+//  long receiverId;
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
@@ -38,13 +38,13 @@ public class Chat {
     return id;
   }
 
-  public long getCreatorId() {
-    return creatorId;
-  }
-
-  public long getReceiverId() {
-    return receiverId;
-  }
+//  public long getCreatorId() {
+//    return creatorId;
+//  }
+//
+//  public long getReceiverId() {
+//    return receiverId;
+//  }
 
   public String getSubject() {
     return subject;
@@ -54,5 +54,8 @@ public class Chat {
     return messages;
   }
 
-  // TODO: fn to add messages to the chat
+  public void addMessage(Message msg){
+    messages.add(msg);
+  }
+
 }

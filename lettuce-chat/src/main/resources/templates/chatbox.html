@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<div th:replace="fragments/layout :: layout"></div>
 <div th:replace="fragments/nav :: nav"></div>
 
 <div th:each="message : ${messages}">
@@ -16,11 +17,12 @@
 </div>
 <h4>Type a message...</h4>
 
-    <form method="POST" th:action="${'/chat/create/' + messageToUser.id}">
+<!--Changed from "${'/chat/create/' + messageToUser.id}"-->
+    <form method="POST" th:action="${'/chat/' + chat.id}">
       <fieldset>
         <label for="subject">Subject: </label><input name="subject" id="subject" type="text"/>
         <label>Text: </label>
-        <p><textarea name="body" cols="40" rows="10"></textarea></p>
+        <textarea name="body" cols="40" rows="10"></textarea>
         <input type="submit" />
       </fieldset>
     </form>
