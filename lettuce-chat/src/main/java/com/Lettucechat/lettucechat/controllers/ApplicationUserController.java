@@ -45,6 +45,8 @@ public class ApplicationUserController {
       applicationUser = applicationUserRepository.findByUsername(p.getName());
     }
     m.addAttribute("viewedUser", applicationUser);
+//    System.out.println("--------------------------" + applicationUser.getId());
+//    why did you show yourself and then not work??
     m.addAttribute("user", p);
     return "profile";
   }
