@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <title>Profile</title>
 </head>
-<body th:style="'background:url(/images/profilebackground.png)100px;'">
+<body>
+  <div th:replace="fragments/layout :: layout"></div>
   <div th:replace="fragments/nav :: nav"></div>
+
   <div class="container">
     <h1>Profile here</h1>
     <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
@@ -21,7 +23,7 @@
     </div>
 
     <div>
-      <form th:method="DELETE" action="/profile">
+      <form method="POST" action="/profile">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
         <input type="submit" value="delete profile"/>

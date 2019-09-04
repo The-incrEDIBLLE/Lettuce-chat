@@ -4,18 +4,17 @@
   <meta charset="UTF-8">
   <title>Lettuce Chat</title>
 </head>
-<body>
-<div th:replace="fragments/nav :: nav"></div>
-<h4>Type a message...</h4>
+  <body>
+    <div th:replace="fragments/nav :: nav"></div>
+    <h4>Type a message...</h4>
 
-<form method="POST" th:action="${'/chat/create/' + messageToUser.id}">
-  <fieldset>
-    <label for="subject">Subject: </label><input name="subject" id="subject" type="text"/>
-    <label>Text: </label>
-    <p><textarea name="body" cols="40" rows="10"></textarea></p>
-    <input type="submit" />
-  </fieldset>
-
-</form>
-</body>
+    <form method="POST" th:action="${'/chat/create/' + messageToUser.id}">
+      <fieldset>
+        <label for="subject">Subject: </label><input name="subject" id="subject" type="text"/>
+        <label>Text: </label>
+        <p><textarea name="body" cols="40" rows="10"></textarea></p>
+        <input type="submit" />
+      </fieldset>
+    </form>
+  </body>
 </html>

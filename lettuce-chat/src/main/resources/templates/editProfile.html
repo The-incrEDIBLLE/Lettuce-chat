@@ -9,8 +9,6 @@
     <form th:method="POST" action="/profile/edit">
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
-<!--      <label for="username">Username</label>-->
-<!--      <input id="username" name="username">-->
       <label for="firstName">firstName</label>
       <input id="firstName" name="firstName" th:value="${viewedUser.firstName}">
       <label for="lastName">lastName</label>

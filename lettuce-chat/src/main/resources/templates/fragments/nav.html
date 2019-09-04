@@ -1,24 +1,97 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:fragment="nav">
+  <nav class="nav" th:if="${user}">
+    <ul>
+      <li class="nav-left"><a href="/">Home</a></li>
+      <li class="nav-right">Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a></li>
+      <li class="nav-right"><a href="/logout">Logout</a></li>
+      <li class="nav-right"><a href="/mychats">My Chats</a></li>
+    </ul>
+  </nav>
+  <nav th:unless="${user}">
+    <ul>
+    <li class="nav-left"><a href="/">Home</a></li>
+      <li class="nav-right"><a href="#" id="login">Log In</a></li>
+      <li class="nav-right"><a href="#" id="signup">Sign up</a></li>
+    </ul>
+  </nav>
 
-  <div th:fragment="nav">
-    <nav class="nav" th:if="${user}">
-      Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a>
-      <a href="/">Home</a>
-      <a class="nav-link" href="/logout">Logout</a>
-      <a class="nav-link" href="/mychats">My Chats</a>
-    </nav>
-    <nav th:unless="${user}">
-      <a href="/">Home</a>
-      <br>
-      <a class="nav-link" href="/login">Log in</a>
-      <br>
-      <a class="nav-link" href="/signup">Sign up</a>
-      <br>
-    </nav>
 
+  <div id="logInModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Member Login</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div id="signUpModal" class="modal fade">
+    <div class="modal-dialog modal-login">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">New Member Signup</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form action="/users" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" name="firstName" placeholder="First Name"
+                     required="required">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <input type="url" class="form-control" name="imgUrl" placeholder="Image Url">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="bio" placeholder="Your bio here">
+            </div>
+            <div class="form-group">
+              <select class="form-control" name="dietaryRestriction">
+                <!--            TODO: for each all the options -->
+                <option value="None">None</option>
+                <option value="Gluten-Free">Gluten-Free</option>
+                <option value="Vegetarian">Vegetarian</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </html>
+
+
 
 <!--<h3>Sorry for the inconvenience, <span th:text="${user.name}"></span>! This page is temporarily down. Try again later.</h3>-->
 
