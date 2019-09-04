@@ -13,6 +13,7 @@ public class Message {
   long sender_id;
   String body;
   String createdAt;
+
   @ManyToOne
   @JoinColumn(name="chat")
   Chat chat;
