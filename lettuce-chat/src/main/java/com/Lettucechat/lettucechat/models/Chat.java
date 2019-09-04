@@ -11,21 +11,35 @@ public class Chat {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
   String subject;
-
+  long creatorId;
+  long receiverId;
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat_id")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat")
   List<Message> messages;
 
+  public void addParticipant(ApplicationUser participant){
+    participants.add(participant);
+  }
   public Chat(){}
   public Chat(String subject){
     this.subject = subject;
+    //this.creatorId = creatorId;
+    //this.receiverId = receiverId;
     this.messages = new ArrayList<>();
   }
 
   public long getId() {
     return id;
+  }
+
+  public long getCreatorId() {
+    return creatorId;
+  }
+
+  public long getReceiverId() {
+    return receiverId;
   }
 
   public String getSubject() {

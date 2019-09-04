@@ -1,13 +1,11 @@
 package com.Lettucechat.lettucechat.controllers;
 
-import com.Lettucechat.lettucechat.models.ApplicationUser;
-import com.Lettucechat.lettucechat.models.ApplicationUserRepository;
-import com.Lettucechat.lettucechat.models.Chat;
-import com.Lettucechat.lettucechat.models.ChatRepository;
+import com.Lettucechat.lettucechat.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -26,14 +24,32 @@ public class ChatController {
     @Autowired
     ChatRepository chatRepository;
 
-//    @PostMapping("/chat/create")
-//    public RedirectView createPost(String body, Principal p){
-//        ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
-//        Timestamp createdAt = new Timestamp(System.currentTimeMillis());
-//        Chat newChat = new Chat(currentUser.getId(), body);
-//        chatRepository.save(newChat);
-//        return new RedirectView("/users/" + currentUser.getId());
-//    }
+    @Autowired
+    MessageRepository messageRepository;
+
+    @PostMapping("/chat/create/{id}")
+    public RedirectView createChat(@PathVariable long id, String subject, Principal p, String body){
+        ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
+        ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
+
+        //Timestamp createdAt = new Timestamp(System.currentTimeMillis());
+        currentUser.addFollowing(messageToUser);
+        //Chat newChat = new Chat(subject,currentUser.getId(), id);
+        Chat newChat = new Chat(subject);
+        currentUser.addChat(newChat);
+
+        //newChat.addParticipant(messageToUser);
+        chatRepository.save(newChat);
+        applicationUserRepository.save(currentUser);
+
+        messageToUser.addFollowing(currentUser);
+        messageToUser.addChat(newChat);
+        applicationUserRepository.save(messageToUser);
+
+        Message newMessage = new Message(currentUser.getId(), subject, newChat);
+        messageRepository.save(newMessage);
+        return new RedirectView("/users/" + currentUser.getId());
+    }
 
     // TODO: check followed users
     @GetMapping("/users")
@@ -56,8 +72,11 @@ public class ChatController {
         return "randomUser";
 
     }
-    @GetMapping("/chat/create")
-    public String getChat(){
+    @GetMapping("/chat/create/{id}")
+    public String getChat(@PathVariable long id, Principal p, Model m){
+        ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
+        m.addAttribute("messageToUser", messageToUser);
+        m.addAttribute("user", p);
         return "chatbox";
     }
 }

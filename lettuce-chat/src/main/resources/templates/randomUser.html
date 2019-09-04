@@ -10,7 +10,7 @@
   <h1>Profile here</h1>
   <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
 </div>
-<a href="/chat/create">Send Message</a>
+<a th:href="${'/chat/create/' + matchedUser.id}">Send Message</a>
 <a href="/users">Next Match</a>
 <!--<div>
   <form method="GET" th:action="${'/users'}">
