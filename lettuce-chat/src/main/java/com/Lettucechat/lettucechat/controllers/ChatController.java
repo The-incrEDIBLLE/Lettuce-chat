@@ -73,10 +73,26 @@ public class ChatController {
 
     }
     @GetMapping("/chat/create/{id}")
-    public String getChat(@PathVariable long id, Principal p, Model m){
+    public String getChat(@PathVariable long id, Principal p, Model m) {
         ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
+        ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
+
+        Set<Chat> chats = loggedInUser.getChats();
+        List<Message> messages = new ArrayList<>();
+
+        for (Chat chat : chats) {
+            if (chat.getParticipants().contains(messageToUser)) {
+                messages.addAll(chat.getMessages());
+            }
+        }
+
         m.addAttribute("messageToUser", messageToUser);
         m.addAttribute("user", p);
+        if (messages.size() != 0) {
+            m.addAttribute("messages", messages);
+        }
         return "chatbox";
+
     }
+
 }
