@@ -21,7 +21,7 @@
     </div>
 
     <div>
-      <form th:method="DELETE" action="/profile">
+      <form method="POST" action="/profile">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
         <input type="submit" value="delete profile"/>

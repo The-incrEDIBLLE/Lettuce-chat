@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class ApplicationUser implements UserDetails {
   String bio;
   String dietaryRestriction;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL)
       @JoinTable(
           name = "userChat",
           joinColumns = {@JoinColumn(name="userId")},
@@ -29,7 +30,7 @@ public class ApplicationUser implements UserDetails {
       )
   Set<Chat> chats;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(
       name = "follows",
       joinColumns = {@JoinColumn(name ="primaryUser")},
@@ -37,7 +38,7 @@ public class ApplicationUser implements UserDetails {
   )
   Set<ApplicationUser> followedUsers;
 
-  @ManyToMany(mappedBy = "followedUsers")
+  @ManyToMany(mappedBy = "followedUsers",cascade = CascadeType.ALL)
   Set<ApplicationUser> userFollowers;
 
   public Set<Chat> getChats() {
@@ -160,5 +161,7 @@ public class ApplicationUser implements UserDetails {
   }
 
   //TODO: add chat function
+
+
 }
 
