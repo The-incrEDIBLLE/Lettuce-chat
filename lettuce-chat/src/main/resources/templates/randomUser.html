@@ -10,7 +10,13 @@
   <div class="container">
     <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
   </div>
-  <a th:href="${'/chat/create/' + matchedUser.id}">Send Message</a>
+<!--  <a th:href="${'/chat/create/' + matchedUser.id}">Send Message</a>-->
+
+<!--  Nhu testing from ${'/chat/create/' + matchedUser.id}-->
+  <form method="POST" th:action="${'/chat/create/' + matchedUser.id}">
+    <input type="submit" value="Create Chat">
+  </form>
+
   <a href="/users">Next Match</a>
   </body>
 </html>
