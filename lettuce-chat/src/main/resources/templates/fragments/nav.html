@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
   <div th:fragment="nav">
     <nav class="nav" th:if="${user}">
       Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a>
@@ -14,5 +15,7 @@
       <a class="nav-link" href="/signup">Sign up</a>
       <br>
     </nav>
+
   </div>
 </html>
+
