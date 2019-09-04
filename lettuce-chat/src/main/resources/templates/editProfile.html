@@ -6,6 +6,9 @@
 </head>
   <body>
 
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+
     <form th:method="POST" action="/profile/edit">
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
@@ -13,8 +16,6 @@
       <input id="firstName" name="firstName" th:value="${viewedUser.firstName}">
       <label for="lastName">lastName</label>
       <input id="lastName" name="lastName"  th:value="${viewedUser.lastName}">
-      <label for="password">Password</label>
-      <input id="password" name="password"  th:value="${viewedUser.password}">
       <label for="imgUrl">Image URL</label>
       <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}">
       <label for="bio">Bio:</label>

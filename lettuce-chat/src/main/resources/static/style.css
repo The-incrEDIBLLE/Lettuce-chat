@@ -6,6 +6,7 @@ div nav {
   background-color: rgb(204, 235, 204);
   padding-left: 0;
   margin-bottom: 0;
+  width: 100%;
 }
 
 nav ul li {
@@ -27,19 +28,19 @@ nav ul li a {
   transition: none;
 }
 
-.nav-left {
+/* .nav-left {
   justify-content: flex-start;
 }
 
 .nav-right {
   justify-content: flex-end;
-}
+} */
 
 main {
   height: 100vh;
   margin-top: -20px;
   background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url("/images/background.jpg") no-repeat center;
-  background-size: 100%, 100%;
+  background-size: 120%, 100%;
   text-align: center;
 }
 

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <div th:fragment="nav">
-  <nav class="nav" th:if="${user}">
+  <nav th:if="${user}">
     <ul>
       <li class="nav-left"><a href="/">Home</a></li>
-      <li class="nav-right">Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a></li>
-      <li class="nav-right"><a href="/logout">Logout</a></li>
+      <li class="nav-right"><span>Hello</span>
+        <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a></li>
       <li class="nav-right"><a href="/mychats">My Chats</a></li>
+      <li class="nav-right"><a href="/logout">Logout</a></li>
     </ul>
   </nav>
   <nav th:unless="${user}">
