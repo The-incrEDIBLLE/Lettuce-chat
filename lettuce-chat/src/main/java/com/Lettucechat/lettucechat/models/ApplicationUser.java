@@ -21,14 +21,71 @@ public class ApplicationUser implements UserDetails {
   String bio;
   String dietaryRestriction;
 
-//  @ManyToMany
-//      @JoinTable(
-//          name = "",
-//          joinColumns = {},
-//          inverseJoinColumns = {}
-//      )
-//  Set<Chat> chats;
+  @ManyToMany
+      @JoinTable(
+          name = "userChat",
+          joinColumns = {@JoinColumn(name="userId")},
+          inverseJoinColumns = {@JoinColumn(name="chatId")}
+      )
+  Set<Chat> chats;
 
+  @ManyToMany
+  @JoinTable(
+      name = "follows",
+      joinColumns = {@JoinColumn(name ="primaryUser")},
+      inverseJoinColumns = {@JoinColumn(name = "followedUser")}
+  )
+  Set<ApplicationUser> followedUsers;
+
+  @ManyToMany(mappedBy = "followedUsers")
+  Set<ApplicationUser> userFollowers;
+
+  public Set<Chat> getChats() {
+    return chats;
+  }
+
+  public Set<ApplicationUser> getFollowedUsers() {
+    return followedUsers;
+  }
+
+  public Set<ApplicationUser> getUserFollowers() {
+    return userFollowers;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public void setImgUrl(String imgUrl) {
+    this.imgUrl = imgUrl;
+  }
+
+  public void setBio(String bio) {
+    this.bio = bio;
+  }
+
+  public void setDietaryRestriction(String dietaryRestriction) {
+    this.dietaryRestriction = dietaryRestriction;
+  }
+  public void addFollowing(ApplicationUser followedUser){
+    followedUsers.add(followedUser);
+  }
+
+  public void addChat(Chat newChat){
+    chats.add(newChat);
+  }
   public ApplicationUser(){}
   public ApplicationUser(String username, String password, String firstName, String lastName, String imgUrl,
                          String bio,
@@ -41,6 +98,7 @@ public class ApplicationUser implements UserDetails {
     this.bio = bio;
     this.dietaryRestriction = dietaryRestriction;
   }
+
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
