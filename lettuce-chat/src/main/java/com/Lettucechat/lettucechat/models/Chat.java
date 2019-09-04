@@ -16,7 +16,7 @@ public class Chat {
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat")
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat",cascade = CascadeType.ALL)
   List<Message> messages;
 
   public void addParticipant(ApplicationUser participant){

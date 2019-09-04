@@ -82,24 +82,6 @@ public class ChatController {
     m.addAttribute("chat", ch);
     m.addAttribute("messages", ch.getMessages());
     m.addAttribute("participants", ch.getParticipants());
-
-//    ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
-//    ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
-//
-//    Set<Chat> chats = loggedInUser.getChats();
-//    List<Message> messages = new ArrayList<>();
-//
-//    for (Chat chat : chats) {
-//      if (chat.getParticipants().contains(messageToUser)) {
-//        messages.addAll(chat.getMessages());
-//        m.addAttribute("chat", chat.getId());
-//      }
-//    }
-//    m.addAttribute("messageToUser", messageToUser);
-//    m.addAttribute("user", p);
-//    if (messages.size() != 0) {
-//      m.addAttribute("messages", messages);
-//    }
     return "chatbox";
 
   }
