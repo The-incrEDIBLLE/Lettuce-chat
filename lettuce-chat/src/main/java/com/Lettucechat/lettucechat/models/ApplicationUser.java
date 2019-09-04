@@ -23,9 +23,9 @@ public class ApplicationUser implements UserDetails {
 
   @ManyToMany
       @JoinTable(
-          name = "user-chat",
-          joinColumns = {@JoinColumn(name="user")},
-          inverseJoinColumns = {@JoinColumn(name="chat")}
+          name = "userChat",
+          joinColumns = {@JoinColumn(name="userId")},
+          inverseJoinColumns = {@JoinColumn(name="chatId")}
       )
   Set<Chat> chats;
 
@@ -79,7 +79,13 @@ public class ApplicationUser implements UserDetails {
   public void setDietaryRestriction(String dietaryRestriction) {
     this.dietaryRestriction = dietaryRestriction;
   }
+  public void addFollowing(ApplicationUser followedUser){
+    followedUsers.add(followedUser);
+  }
 
+  public void addChat(Chat newChat){
+    chats.add(newChat);
+  }
   public ApplicationUser(){}
   public ApplicationUser(String username, String password, String firstName, String lastName, String imgUrl,
                          String bio,
@@ -92,6 +98,7 @@ public class ApplicationUser implements UserDetails {
     this.bio = bio;
     this.dietaryRestriction = dietaryRestriction;
   }
+
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
