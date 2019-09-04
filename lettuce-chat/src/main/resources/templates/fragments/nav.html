@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
   <div th:fragment="nav">
     <nav class="nav" th:if="${user}">
       Hello <a class="nav-link" href="/profile"><span th:text="${user.name}"></span>!</a>
@@ -9,10 +10,15 @@
     </nav>
     <nav th:unless="${user}">
       <a href="/">Home</a>
+      <br>
       <a class="nav-link" href="/login">Log in</a>
+      <br>
       <a class="nav-link" href="/signup">Sign up</a>
+      <br>
     </nav>
+
   </div>
 </html>
 
 <!--<h3>Sorry for the inconvenience, <span th:text="${user.name}"></span>! This page is temporarily down. Try again later.</h3>-->
+

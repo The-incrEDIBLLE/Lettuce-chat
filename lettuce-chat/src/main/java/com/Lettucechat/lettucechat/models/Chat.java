@@ -3,25 +3,30 @@ package com.Lettucechat.lettucechat.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Chat {
-
-  // TODO: Many to many relationship with application user
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
-  long creator_id;
-  long participant_id;
   String subject;
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat_id")
+  long creatorId;
+  long receiverId;
+  @ManyToMany(mappedBy = "chats")
+  Set<ApplicationUser> participants;
+
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat")
   List<Message> messages;
 
+  public void addParticipant(ApplicationUser participant){
+    participants.add(participant);
+  }
   public Chat(){}
-  public Chat(long creator_id, long participant_id, String subject){
-    this.creator_id = creator_id;
-    this.participant_id = participant_id;
+  public Chat(String subject){
     this.subject = subject;
+    //this.creatorId = creatorId;
+    //this.receiverId = receiverId;
     this.messages = new ArrayList<>();
   }
 
@@ -29,12 +34,12 @@ public class Chat {
     return id;
   }
 
-  public long getCreator_id() {
-    return creator_id;
+  public long getCreatorId() {
+    return creatorId;
   }
 
-  public long getParticipant_id() {
-    return participant_id;
+  public long getReceiverId() {
+    return receiverId;
   }
 
   public String getSubject() {

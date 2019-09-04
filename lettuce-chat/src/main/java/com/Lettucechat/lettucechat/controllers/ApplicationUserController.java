@@ -16,7 +16,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class ApplicationUserController {
