@@ -32,22 +32,28 @@ public class ChatController {
         ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
         ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
 
-        //Timestamp createdAt = new Timestamp(System.currentTimeMillis());
-        currentUser.addFollowing(messageToUser);
-        //Chat newChat = new Chat(subject,currentUser.getId(), id);
-        Chat newChat = new Chat(subject);
-        currentUser.addChat(newChat);
+        Set<Chat> chats = currentUser.getChats();
 
-        //newChat.addParticipant(messageToUser);
-        chatRepository.save(newChat);
-        applicationUserRepository.save(currentUser);
+        for (Chat chat : chats) {
+            if (chat.getParticipants().contains(messageToUser)) {
+                Message newMessage = new Message(currentUser.getId(), subject, chat);
+                messageRepository.save(newMessage);
+            } else {
+                currentUser.addFollowing(messageToUser);
+                Chat newChat = new Chat(subject);
+                currentUser.addChat(newChat);
+                chatRepository.save(newChat);
+                applicationUserRepository.save(currentUser);
 
-        messageToUser.addFollowing(currentUser);
-        messageToUser.addChat(newChat);
-        applicationUserRepository.save(messageToUser);
+                messageToUser.addFollowing(currentUser);
+                messageToUser.addChat(newChat);
+                applicationUserRepository.save(messageToUser);
 
-        Message newMessage = new Message(currentUser.getId(), subject, newChat);
-        messageRepository.save(newMessage);
+                Message newMessage = new Message(currentUser.getId(), subject, newChat);
+                messageRepository.save(newMessage);
+            }
+        }
+
         return new RedirectView("/users/" + currentUser.getId());
     }
 
