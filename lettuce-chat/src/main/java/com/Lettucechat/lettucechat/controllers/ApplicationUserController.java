@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Controller
@@ -101,6 +102,14 @@ public class ApplicationUserController {
 
   @DeleteMapping("/profile")
   public RedirectView deleteUser(long viewedUserId) {
+
+//    ApplicationUser loggedInUser = applicationUserRepository.findById(viewedUserId).get();
+//    loggedInUser.setFollowedUsers(new HashSet<>());
+//    loggedInUser.setUserFollowers(new HashSet<>());
+//    loggedInUser.setChats(new HashSet<>());
+//
+//    applicationUserRepository.save(loggedInUser);
+
     applicationUserRepository.deleteById(viewedUserId);
     return new RedirectView("/logout");
   }
