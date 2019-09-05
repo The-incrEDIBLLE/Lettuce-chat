@@ -59,7 +59,4 @@ public class Chat {
     this.participants = participants;
   }
 
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
 }
