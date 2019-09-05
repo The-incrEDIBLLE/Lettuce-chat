@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
   <title>Lettuce Chat</title>
 </head>
 
@@ -11,7 +12,7 @@
     <div th:replace="fragments/nav :: nav"></div>
     <main>
       <div class="chatbox">
-        <h3 th:text="'Chat: ' + ${chat.subject}"></h3>
+        <h3 th:text="${chat.subject}"></h3>
 
         <div class="message-scrollable">
           <div th:each="participant : ${chat.participants}">
@@ -32,11 +33,8 @@
           </div>
         </div>
         <form method="POST" th:action="${'/chat/' + chat.id}">
-          <fieldset>
-            <legend>Type your message...</legend>
-            <textarea name="body" cols="40" rows="6" class="textbox"></textarea>
-            <input type="submit" />
-          </fieldset>
+          <textarea name="body" cols="40" rows="6" class="textbox" placeholder="Type your message..."></textarea>
+          <input type="submit" class="btn"/>
         </form>
 
       </div>

@@ -13,12 +13,12 @@ nav ul li {
   list-style: none;
   display: inline-flex;
   line-height: 60px;
-
 }
 
 nav ul li a {
   padding: 0.5em 1.5em 0.5em 1.5em;
-  color: rgba(9, 65, 27, 0.5);
+  /* color: rgba(9, 65, 27, 0.5); */
+  color: rgb(104, 81, 81);
   text-decoration: none;
   outline: 0;
   border: 0;
@@ -28,13 +28,14 @@ nav ul li a {
   transition: none;
 }
 
+nav ul li a:hover {
+  text-decoration: none;
+  color: purple;
+}
+
 nav > ul {
   display: flex;
   justify-content: space-between;
-}
-
-.home-main {
-  text-align: center;
 }
 
 main {
@@ -46,20 +47,31 @@ main {
   justify-content: center;
 }
 
-
-.profile-box {
-    background-color: white;
-    max-width: 500px;
-    margin: auto;
-    padding: 100px;
+.box {
+  text-align: center;
+  margin: auto;
+  color: rgb(104, 81, 81);
+  border: 2px dotted black;
+  max-width: 500px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
 }
 
 /* All chats styles */
-.chat-horizontal {
-    background-color: white;
-    max-width: 500px;
-    margin: auto;
-    padding: 100px;
+.each-chat {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.each-chat > p > span > a {
+    color: orange;
+}
+
+.each-chat > p > span > a:hover {
+    color: purple;
+    text-decoration: none;
 }
 
 /* Chatbox styles */
@@ -68,35 +80,31 @@ main {
   border: 1px double black;
   height: 600px;
   width: 35%;
-  background-color: rgb(76, 95, 76);
+  background-color:  rgba(244, 186, 116, 0.5);
   text-align: center;
-
+  padding: 5px 5px;
 }
 
 .chatbox > h3 {
   font-size: 16px;
-  color: white;
+  color: rgb(104, 81, 81);
 }
 
 .message-scrollable {
   text-align: left;
-  border-style: 1px solid black;
-  background-color: white;
+  border: 1px double black;
+  background-color: rgba(252, 251, 251, 0.9);
   height: 60%;
   width: 90%;
   overflow-y: scroll;
   margin: auto;
 }
 
-legend {
-  color: white;
-  font-size: 10px;
-}
-/* height/width change */
 .textbox {
-  justify-content: center;
-  border-style: 1px solid black;
-  background-color: white;
+  margin-top: 15px;
+  /* justify-content: center; */
+  border: 1px solid black;
+  background-color: rgba(255,255,255,0.9);
   height: 20%;
   width: 90%;
 }
@@ -104,10 +112,6 @@ legend {
 .sender {
   font-weight: bold;
 }
-
-/* .message {
-
-} */
 
 .createdAt {
   font-style: italic;
@@ -121,9 +125,6 @@ legend {
   margin: auto;
   padding: 100px;
 }
-
-
-
 
 /* Footer styles */
 footer {

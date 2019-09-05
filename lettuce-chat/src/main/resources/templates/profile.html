@@ -14,10 +14,10 @@
     <div class="container profile-box">
       <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
 
-      <section th:if="${viewedUser.username == user.name}">
+      <section class="profile-btns" th:if="${viewedUser.username == user.name}">
         <div>
           <form method="GET" th:action="${'/users'}">
-            <input type="submit" value="View Matches" class="btn"/>
+            <input type="submit" value="Find friends" class="btn"/>
           </form>
         </div>
         <div>
