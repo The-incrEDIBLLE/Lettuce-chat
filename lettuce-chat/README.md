@@ -72,6 +72,8 @@ A chat to find a lunch buddy based on dietary restrictions.
     * Commit to master branch when a feature is completed and tested.
     * A team member other than the developer will review pull requests from the developer and merge.
  
+ ## Resoruces
+    * icons for devs - https://icon-icons.com/
  
 ## Team members
     * Nhu Trinh

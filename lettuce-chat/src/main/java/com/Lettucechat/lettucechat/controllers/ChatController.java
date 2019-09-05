@@ -27,9 +27,10 @@ public class ChatController {
   MessageRepository messageRepository;
 
   @PostMapping("/chat/create/{id}")
-  public RedirectView createChat(@PathVariable long id, String subject, Principal p){
+  public RedirectView createChat(@PathVariable long id, Principal p){
     ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
     ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
+    String subject = currentUser.getUsername().toUpperCase() + " & " + messageToUser.getUsername().toUpperCase() + " get lunch!";
     Chat newChat = new Chat(subject);
     chatRepository.save(newChat);
     currentUser.addFollowing(messageToUser);
@@ -71,7 +72,7 @@ public class ChatController {
     }
     if (matchedUsers.isEmpty()){
       System.out.println("Match is not found");
-      //System.exit(0);
+      return "nomatch";
     }
 
     int numberOfMatches = matchedUsers.size();
@@ -85,7 +86,6 @@ public class ChatController {
     Chat ch = chatRepository.findById(id).get();
     m.addAttribute("chat", ch);
     m.addAttribute("messages", ch.getMessages());
-    m.addAttribute("participants", ch.getParticipants());
     return "chatbox";
   }
 
