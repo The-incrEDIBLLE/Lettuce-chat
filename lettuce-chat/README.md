@@ -74,6 +74,14 @@ A chat to find a lunch buddy based on dietary restrictions.
  
  ## Resoruces
     * icons for devs - https://icon-icons.com/
+    * https://www.w3schools.com/
+    * https://www.geeksforgeeks.org/java/
+    * https://getbootstrap.com/
+    * https://pngtree.com/freepng/background-material-design-for-fruits-and-vegetables_3637134.html
+    * https://codepen.io/jasondavis/pen/vyMJPp
+    * https://bootstrapious.com/p/team-page
+    * https://www.needpix.com/photo/download/380408/lettuce-vegetables-food-organic-free-pictures-free-photos-free-images-royalty-free
+    
  
 ## Team members
     * Nhu Trinh
