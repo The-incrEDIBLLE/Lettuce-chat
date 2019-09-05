@@ -12,7 +12,7 @@
     <div th:replace="fragments/nav :: nav"></div>
     <main>
       <div class="chatbox">
-        <h3 th:text="'Chat: ' + ${chat.subject}"></h3>
+        <h3 th:text="${chat.subject}"></h3>
 
         <div class="message-scrollable">
           <div th:each="participant : ${chat.participants}">

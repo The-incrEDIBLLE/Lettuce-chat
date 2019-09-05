@@ -17,9 +17,15 @@
           </div><!-- /.col -->
 
           <div class="col-xs-12 col-sm-9">
-            <h4 class="blue"><span class="middle" th:text="${userToProfile.username}"></span></h4>
-
             <div class="profile-user-info">
+              <div class="profile-info-row">
+                <div class="profile-info-name"> Username </div>
+
+                <div class="profile-info-value">
+                  <span th:text="${userToProfile.username}"></span>
+                </div>
+              </div>
+
               <div class="profile-info-row">
                 <div class="profile-info-name"> First Name </div>
 
@@ -44,30 +50,18 @@
                 </div>
               </div>
               <div class="hr hr-8 dotted"></div>
-            </div>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
 
-        <div class="space-20"></div>
+              <div class="profile-info-row">
+                <div class="profile-info-name"> A little about me </div>
 
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <div class="widget-box transparent">
-              <div class="widget-header widget-header-small">
-                <h4 class="widget-title smaller">
-                  <i class="ace-icon fa fa-check-square-o bigger-110"></i>
-                  <p>A Little About Me:</p>
-                </h4>
-              </div>
-
-              <div class="widget-body">
-                <div class="widget-main">
+                <div class="profile-info-value">
                   <p th:text="${userToProfile.bio}"></p>
                 </div>
               </div>
+
             </div>
-          </div>
-        </div>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
       </div>
     </div>
 

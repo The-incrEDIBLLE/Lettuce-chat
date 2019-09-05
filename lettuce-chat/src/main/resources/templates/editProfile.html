@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
   <title>Lettuce Chat</title>
+<!--  <link rel="stylesheet" href="profile.css" type="text/css">-->
+
 </head>
   <body>
 
@@ -12,7 +14,7 @@
     <div th:replace="fragments/nav :: nav"></div>
 
     <main>
-      <div class="profile-box">
+      <div class="box">
         <form th:method="POST" action="/profile/edit">
           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
@@ -23,12 +25,18 @@
           <label for="imgUrl">Image URL</label>
           <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}">
           <label for="bio">Bio:</label>
-          <input type="text" name="bio" id="bio">
+          <textarea type="text" name="bio" id="bio"></textarea>
           <label for="dietaryRestriction">Dietary Restriction</label>
           <select name="dietaryRestriction" id="dietaryRestriction">
             <option value="None">None</option>
-            <option value="None">Gluten-Free</option>
-            <option value="None">Vegetarian</option>
+            <option value="Diabetic">Diabetic</option>
+            <option value="Keto">Keto</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+            <option value="Lactose-Free">Lactose-Free</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Pescatarian">Pescatarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Vegetarian">Vegetarian</option>
           </select>
           <input type="submit" value="edit profile"/>
         </form>

@@ -11,11 +11,11 @@
     <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
     <main>
-      <div class="chat-horizontal">
+      <div class="box">
         <h3>My Chats</h3>
-        <div th:each="chat : ${chats}" class="box">
+        <div th:each="chat : ${chats}" class="each-chat">
           <ul style="list-style-type:none">
-            <li>Subject: <span th:text="${chat.subject}"></span></li>
+            <li>Chat: <span th:text="${chat.subject}"></span></li>
             <li>
              <span th:each="participant : ${chat.participants}">
                <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}"

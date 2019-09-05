@@ -51,21 +51,16 @@ main {
   text-align: center;
   margin: auto;
   color: rgb(104, 81, 81);
-}
-
-.profile-box {
-    background-color: white;
-    max-width: 500px;
-    margin: auto;
-    padding: 100px;
+  border: 2px dotted black;
+  max-width: 500px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
 }
 
 /* All chats styles */
-.chat-horizontal {
-    background-color: white;
-    max-width: 500px;
-    margin: auto;
-    padding: 100px;
+.each-chat {
+    margin: 10px 0;
 }
 
 /* Chatbox styles */
