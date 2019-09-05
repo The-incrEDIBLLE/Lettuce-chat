@@ -51,4 +51,15 @@ public class Chat {
     messages.add(msg);
   }
 
+  public void setMessages(List<Message> messages) {
+    this.messages = messages;
+  }
+
+  public void setParticipants(Set<ApplicationUser> participants) {
+    this.participants = participants;
+  }
+
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
 }
