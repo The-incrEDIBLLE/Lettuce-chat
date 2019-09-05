@@ -5,25 +5,27 @@
   <title>Lettuce Chat</title>
 </head>
 
-<body>
-<div th:replace="fragments/layout :: layout"></div>
-<div th:replace="fragments/nav :: nav"></div>
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div th:each="message : ${messages}" class="box">
+        <ul style="list-style-type:none">
+          <li>Created at: <span th:text="${message.createdAt}"></span></li>
+          <li>Body: <span th:text="${message.body}"></span></li>
+        </ul>
+      </div>
+      <h4>Type your message...</h4>
+      <form method="POST" th:action="${'/chat/' + chat.id}">
+        <fieldset>
+  <!--        <label for="subject">Subject: </label>-->
+  <!--        <input name="subject" id="subject" type="text"/>-->
+          <textarea name="body" cols="40" rows="10"></textarea>
+          <input type="submit" />
+        </fieldset>
+      </form>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
-<div th:each="message : ${messages}">
-  <ul style="list-style-type:none">
-    <li>Created At: <span th:text="${message.createdAt}"></span></li>
-    <li>Body: <span th:text="${message.body}"></span></li>
-  </ul>
-</div>
-<h4>Type a message...</h4>
-
-    <form method="POST" th:action="${'/chat/' + chat.id}">
-      <fieldset>
-        <label for="subject">Subject: </label><input name="subject" id="subject" type="text"/>
-        <label>Text: </label>
-        <textarea name="body" cols="40" rows="10"></textarea>
-        <input type="submit" />
-      </fieldset>
-    </form>
   </body>
 </html>
