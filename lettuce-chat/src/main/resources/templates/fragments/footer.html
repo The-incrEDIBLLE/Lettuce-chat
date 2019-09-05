@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-  <div th:fragment="footer">
-    <a href="/team">The IncrEDIBLLES</a>
-  </div>
+  <footer th:fragment="footer">
+
+    <form th:method="POST" action="/team">
+      <a href="/team">The IncrEDIBLLES</a>
+      <p>Codefellows 401 Java Mid-Term Project </p>
+      © 2019 Copyright
+      <a class="grey-text text-lighten-4 right" href="/team">About Us</a>
+    </form>
+
+</footer>
 
 </html>
