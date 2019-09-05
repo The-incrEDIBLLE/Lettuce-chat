@@ -9,10 +9,12 @@
   <body>
     <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
-    <main class="home-main">
-      <h1>Lettuce Chat</h1>
-      <p>Welcome to Lettuce Chat! With this app you can choose the friends you meet up and eat with! To make picking what
-      kind of food a more pleasurable experience, once you pick your dietary preference you will be pooled with people who eat what you eat!</p>
+    <main>
+      <div class="container box">
+        <h1>Lettuce Chat</h1>
+        <p>Welcome to Lettuce Chat! With this app you can choose the friends you meet up and eat with! To make picking what
+        kind of food a more pleasurable experience, once you pick your dietary preference you will be pooled with people who eat what you eat!</p>
+      </div>
     </main>
 
     <footer th:replace="fragments/footer :: footer"></footer>

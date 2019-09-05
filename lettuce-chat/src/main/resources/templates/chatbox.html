@@ -3,6 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
   <title>Lettuce Chat</title>
 </head>
 
@@ -32,11 +33,8 @@
           </div>
         </div>
         <form method="POST" th:action="${'/chat/' + chat.id}">
-          <fieldset>
-            <legend>Type your message...</legend>
-            <textarea name="body" cols="40" rows="6" class="textbox"></textarea>
-            <input type="submit" />
-          </fieldset>
+          <textarea name="body" cols="40" rows="6" class="textbox" placeholder="Type your message..."></textarea>
+          <input type="submit" class="btn"/>
         </form>
 
       </div>
