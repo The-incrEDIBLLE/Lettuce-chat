@@ -50,14 +50,17 @@ main {
 
 .profile-box {
     background-color: white;
-    height: 60%;
-    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    padding: 100px;
+
 }
 
 .chat-horizontal {
     background-color: white;
-    height: 20%;
-    width: 60%;
+    max-width: 500px;
+    margin: auto;
+    padding: 100px;
 }
 
 /* Footer styles */

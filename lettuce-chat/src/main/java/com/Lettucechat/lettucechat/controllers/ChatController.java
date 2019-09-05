@@ -71,7 +71,7 @@ public class ChatController {
     }
     if (matchedUsers.isEmpty()){
       System.out.println("Match is not found");
-      //System.exit(0);
+      return "nomatch";
     }
 
     int numberOfMatches = matchedUsers.size();

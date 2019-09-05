@@ -11,7 +11,7 @@
 }
 
 .profile-info-row {
-    display: table-row
+    display: table-row;
 }
 
 .profile-info-name,
@@ -81,6 +81,8 @@
 
 
 
-.btn {
+.input-btn {
+
+    /*color: red;*/
 
 }
