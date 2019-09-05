@@ -85,6 +85,7 @@ public class ApplicationUserController {
   public String getEditProfileForm(Principal p, Model m){
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
     m.addAttribute("viewedUser", applicationUser);
+    m.addAttribute("user", p);
     return "editProfile";
   }
 
