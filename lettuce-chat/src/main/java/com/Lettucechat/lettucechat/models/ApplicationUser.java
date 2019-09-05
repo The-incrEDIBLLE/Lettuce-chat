@@ -36,10 +36,11 @@ public class ApplicationUser implements UserDetails {
       name = "follows",
       joinColumns = {@JoinColumn(name ="primaryUser")},
       inverseJoinColumns = {@JoinColumn(name = "followedUser")}
+
   )
   Set<ApplicationUser> followedUsers;
 
-  @ManyToMany(mappedBy = "followedUsers",cascade = CascadeType.ALL)
+  @ManyToMany(mappedBy = "followedUsers", cascade = CascadeType.ALL)
   Set<ApplicationUser> userFollowers;
 
   public Set<Chat> getChats() {
@@ -56,6 +57,10 @@ public class ApplicationUser implements UserDetails {
 
   public void setFollowedUsers(Set<ApplicationUser> followedUsers) {
     this.followedUsers = followedUsers;
+  }
+
+  public void setUserFollowers(Set<ApplicationUser> userFollowers) {
+    this.userFollowers = userFollowers;
   }
 
   public void setUsername(String username) {
