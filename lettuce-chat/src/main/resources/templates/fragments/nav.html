@@ -3,8 +3,8 @@
 <div th:fragment="nav">
   <nav th:if="${user}">
     <ul>
-      <li class="nav-left"><a href="/">Home</a></li>
-      <span class="nav-right">
+      <li><a href="/">Home</a></li>
+      <span>
         <li><a href="/profile" th:text="'Hello ' + ${user.name} + '!'"></a></li>
         <li><a href="/mychats">My Chats</a></li>
         <li><a href="/logout">Logout</a></li>
@@ -13,8 +13,8 @@
   </nav>
   <nav th:unless="${user}">
     <ul>
-      <li class="nav-left"><a href="/">Home</a></li>
-      <span class="nav-right">
+      <li><a href="/">Home</a></li>
+      <span>
         <li><a href="#" id="login">Log In</a></li>
         <li><a href="#" id="signup">Sign up</a></li>
       </span>
@@ -84,7 +84,7 @@
               </select>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+              <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
             </div>
           </form>
         </div>
