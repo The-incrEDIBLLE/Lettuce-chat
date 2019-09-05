@@ -115,6 +115,13 @@ legend {
   font-size: 8px;
 }
 
+.box-match {
+  background-color: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 100px;
+}
+
 
 
 
@@ -135,9 +142,6 @@ footer {
     font-size: 1.6em;
 }
 
-.row {
-    color: brown;
-}
 
 footer > a {
   color: saddlebrown;
