@@ -15,6 +15,8 @@
 
     <main>
       <div class="box">
+        <h3>Edit your profile</h3>
+        <hr />
         <form th:method="POST" action="/profile/edit">
           <input type="hidden" name="_method" value="PUT">
           <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
@@ -25,7 +27,7 @@
           <label for="imgUrl">Image URL</label>
           <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}">
           <label for="bio">Bio:</label>
-          <textarea type="text" name="bio" id="bio"></textarea>
+          <input type="text" name="bio" id="bio" th:value="${viewedUser.bio}">
           <label for="dietaryRestriction">Dietary Restriction</label>
           <select name="dietaryRestriction" id="dietaryRestriction">
             <option value="None">None</option>

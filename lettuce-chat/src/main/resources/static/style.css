@@ -60,7 +60,18 @@ main {
 
 /* All chats styles */
 .each-chat {
-    margin: 10px 0;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.each-chat > p > span > a {
+    color: orange;
+}
+
+.each-chat > p > span > a:hover {
+    color: purple;
+    text-decoration: none;
 }
 
 /* Chatbox styles */

@@ -14,14 +14,11 @@
       <div class="box">
         <h3>My Chats</h3>
         <div th:each="chat : ${chats}" class="each-chat">
-          <ul style="list-style-type:none">
-            <li>Chat: <span th:text="${chat.subject}"></span></li>
-            <li>
-             <span th:each="participant : ${chat.participants}">
-               <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}"
-                  th:text="${participant.username}"></a></span>
-            </li>
-          </ul>
+          <p>Chat: <span th:text="${chat.subject}"></span></p>
+          <p>
+           <span th:each="participant : ${chat.participants}">
+             <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}">Enter Chat</a></span>
+          </p>
         </div>
       </div>
     </main>
