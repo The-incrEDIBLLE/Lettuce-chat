@@ -5,17 +5,19 @@
   <title>Lettuce Chat</title>
 </head>
   <body>
-  <div th:replace="fragments/layout :: layout"></div>
-  <div th:replace="fragments/nav :: nav"></div>
-  <div class="container">
-    <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
-  </div>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="container profile-box">
+        <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
+      </div>
 
-  <form method="POST" th:action="${'/chat/create/' + matchedUser.id}">
-    <input type="submit" value="Create Chat">
-  </form>
+      <form method="POST" th:action="${'/chat/create/' + matchedUser.id}">
+        <input type="submit" value="Create Chat">
+      </form>
+      <a href="/users">Next Match</a>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
-  <a href="/users">Next Match</a>
-  <div th:replace="fragments/footer :: footer"></div>
   </body>
 </html>

@@ -4,22 +4,26 @@
   <meta charset="UTF-8">
   <title>Lettuce Chat</title>
 </head>
-<body>
-<h3>My Chats</h3>
-<div th:each="chat : ${chats}">
-  <ul style="list-style-type:none">
-    <li>Subject: <span th:text="${chat.subject}"></span></li>
 
-    <li>
-     <span th:each="participant : ${chat.participants}">
-       <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}"
-          th:text="${participant.username}"></a></span>
-    </li>
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="chat-horizontal">
+        <h3>My Chats</h3>
+        <div th:each="chat : ${chats}" class="box">
+          <ul style="list-style-type:none">
+            <li>Subject: <span th:text="${chat.subject}"></span></li>
+            <li>
+             <span th:each="participant : ${chat.participants}">
+               <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}"
+                  th:text="${participant.username}"></a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+  </body>
 
-  </ul>
-
-
-</div>
-<div th:replace="fragments/footer :: footer"></div>
-</body>
 </html>

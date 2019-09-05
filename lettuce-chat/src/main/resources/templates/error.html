@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <meta charset="UTF-8">
-    <title>error</title>
-<body>
-Sorry for the inconvenience. This page is temporarily down. Try again later.</a>
-</body>
+<meta charset="UTF-8">
+<title>Lettuce Chat</title>
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="box">
+        <p>Sorry for the inconvenience. This page is temporarily down. Try again later.</p>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+  </body>
 </html>

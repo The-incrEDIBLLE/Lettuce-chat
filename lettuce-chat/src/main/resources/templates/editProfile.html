@@ -9,25 +9,30 @@
     <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
 
-    <form th:method="POST" action="/profile/edit">
-      <input type="hidden" name="_method" value="PUT">
-      <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
-      <label for="firstName">firstName</label>
-      <input id="firstName" name="firstName" th:value="${viewedUser.firstName}">
-      <label for="lastName">lastName</label>
-      <input id="lastName" name="lastName"  th:value="${viewedUser.lastName}">
-      <label for="imgUrl">Image URL</label>
-      <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}">
-      <label for="bio">Bio:</label>
-      <input type="text" name="bio" id="bio">
-      <label for="dietaryRestriction">Dietary Restriction</label>
-      <select name="dietaryRestriction" id="dietaryRestriction">
-        <option value="None">None</option>
-        <option value="None">Gluten-Free</option>
-        <option value="None">Vegetarian</option>
-      </select>
-      <input type="submit" value="edit profile"/>
-    </form>
-    <div th:replace="fragments/footer :: footer"></div>
+    <main>
+      <div class="profile-box">
+        <form th:method="POST" action="/profile/edit">
+          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
+          <label for="firstName">firstName</label>
+          <input id="firstName" name="firstName" th:value="${viewedUser.firstName}">
+          <label for="lastName">lastName</label>
+          <input id="lastName" name="lastName"  th:value="${viewedUser.lastName}">
+          <label for="imgUrl">Image URL</label>
+          <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}">
+          <label for="bio">Bio:</label>
+          <input type="text" name="bio" id="bio">
+          <label for="dietaryRestriction">Dietary Restriction</label>
+          <select name="dietaryRestriction" id="dietaryRestriction">
+            <option value="None">None</option>
+            <option value="None">Gluten-Free</option>
+            <option value="None">Vegetarian</option>
+          </select>
+          <input type="submit" value="edit profile"/>
+        </form>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+
   </body>
 </html>
