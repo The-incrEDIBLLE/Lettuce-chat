@@ -1,35 +1,80 @@
+<!--https://bootstrapious.com/p/team-page-->
+<!--https://getbootstrap.com/docs/4.3/getting-started/introduction/-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>The IncrEDIBLLES</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="team.css" type="text/css">
+
 </head>
 <body>
+<div th:replace="fragments/layout :: layout"></div>
+<div th:replace="fragments/nav :: nav"></div>
 
-  <h1>The IncrEDIBLLES</h1>
-
-  <p>About Us</p>
-
-  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-  <br><a href="https://github.com/nhu">Nhu Trinh </a></br><br>
-
-
-  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-  <br><a href="https://github.com/padma">Padma Ganapathi</a></br><br>
-
-
-  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-  <br><a href="https://github.com/rttgg">Roman Gebrehiwot</a></br><br>
-
-
-  <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-  <br><a href="https://github.com/joachen">Joachen Busch</a></br><br>
-
-
-      <a href="https://placeholder.com"><img src="https://via.placeholder.com/150"></a>
-      <li>Joachen Busch</li>
+<div class="container py-5">
+  <div class="row text-center text-white">
+    <div class="col-lg-8 mx-auto">
+      <h1 class="display-4">The IncrEDIBLLES</h1>
+      <p class="lead mb-0">Meet the Amazing Devs!</p>
+      </p>
     </div>
-  </main>
+  </div>
+</div><!-- End -->
+
+
+<div class="container">
+  <div class="row text-center">
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/nhu.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Nhu Trinh</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/Nhuuu"><img src="images/github.png" height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/padma.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Padma Ganapathi</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/gpadmapriya"><img src="images/github.png" height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/roman.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Roman Gebrehiwot</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/rttgg"><img src="images/github.png" height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/joachen.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Joachen Busch</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/JBusch2010"><img src="images/github.png" height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+  </div>
+</div>
+
   <footer th:replace="fragments/footer :: footer"></footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
