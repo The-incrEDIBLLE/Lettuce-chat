@@ -56,12 +56,60 @@ main {
 
 }
 
+/* All chats styles */
 .chat-horizontal {
     background-color: white;
     max-width: 500px;
     margin: auto;
     padding: 100px;
 }
+
+/* Chatbox styles */
+.chatbox {
+  border-style: double black;
+  height: 500px;
+  width: 35%;
+  background-color: rgb(76, 95, 76);
+  display: flex
+}
+
+.chatbox > h3 {
+  font-size: 11px;
+}
+
+.message-scrollable {
+  justify-content: center;
+  border-style: 1px solid black;
+  background-color: white;
+  height: 300px;
+  width: 28%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* height/width change */
+.textbox {
+  justify-content: center;
+  border-style: 1px solid black;
+  background-color: white;
+}
+
+.sender {
+  font-weight: bold;
+}
+
+/* .message {
+
+} */
+
+.createdAt {
+  font-style: italic;
+  color: lightgrey;
+  font-size: 6px;
+}
+
+
+
 
 /* Footer styles */
 footer {
