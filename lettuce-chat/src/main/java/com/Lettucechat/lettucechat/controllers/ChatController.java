@@ -71,12 +71,13 @@ public class ChatController {
       }
     }
     if (matchedUsers.isEmpty()){
-      System.out.println("Match is not found");
+      m.addAttribute("user", p);
       return "nomatch";
     }
 
     int numberOfMatches = matchedUsers.size();
     m.addAttribute("matchedUser", matchedUsers.get((int)(Math.random() * numberOfMatches)));
+    m.addAttribute("user", p);
     return "randomUser";
 
   }

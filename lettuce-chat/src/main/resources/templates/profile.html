@@ -23,7 +23,7 @@
         <div>
           <a href="/profile/edit"><button class="btn">Edit Profile</button></a>
         </div>
-        <div>
+        <div class="myform">
           <form method="POST" action="/profile">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">

@@ -119,9 +119,11 @@ main {
   font-size: 8px;
 }
 
-/* for all the buttons */
-.btn {
-
+.box-match {
+  background-color: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 100px;
 }
 
 /* Footer styles */
@@ -132,11 +134,18 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
-  background-color: rgb(240, 231, 220, 0.5);
+  background-color: rgb(240, 231, 220);
 }
 
+.home-main {
+    color: saddlebrown;
+    text-decoration: none;
+    font-size: 1.6em;
+}
+
+
 footer > a {
-  color: purple;
+  color: saddlebrown;
   text-decoration: none;
   font-size: 1.6em;
 }

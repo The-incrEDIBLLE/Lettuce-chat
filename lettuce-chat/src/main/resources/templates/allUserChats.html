@@ -17,7 +17,9 @@
           <p>Chat: <span th:text="${chat.subject}"></span></p>
           <p>
            <span th:each="participant : ${chat.participants}">
-             <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}">Enter Chat</a></span>
+             <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}">Enter Chat</a>
+             <a th:if="${participant.username != user.name}" th:href="${'/users/' + participant.id}">View Profile</a>
+            </span>
           </p>
         </div>
       </div>
