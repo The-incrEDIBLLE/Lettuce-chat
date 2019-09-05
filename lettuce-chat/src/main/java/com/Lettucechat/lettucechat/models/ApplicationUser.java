@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -53,6 +54,10 @@ public class ApplicationUser implements UserDetails {
     return userFollowers;
   }
 
+  public void setFollowedUsers(Set<ApplicationUser> followedUsers) {
+    this.followedUsers = followedUsers;
+  }
+
   public void setUsername(String username) {
     this.username = username;
   }
@@ -80,6 +85,7 @@ public class ApplicationUser implements UserDetails {
   public void setDietaryRestriction(String dietaryRestriction) {
     this.dietaryRestriction = dietaryRestriction;
   }
+
   public void addFollowing(ApplicationUser followedUser){
     followedUsers.add(followedUser);
   }
@@ -98,6 +104,7 @@ public class ApplicationUser implements UserDetails {
     this.imgUrl = imgUrl;
     this.bio = bio;
     this.dietaryRestriction = dietaryRestriction;
+
   }
 
 
@@ -128,6 +135,10 @@ public class ApplicationUser implements UserDetails {
 
   public String getDietaryRestriction() {
     return dietaryRestriction;
+  }
+
+  public void setChats(Set<Chat> chats) {
+    this.chats = chats;
   }
 
   @Override
