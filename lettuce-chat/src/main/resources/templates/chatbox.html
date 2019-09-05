@@ -10,29 +10,27 @@
     <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
     <main>
-<!--      border around the whole chatbox and color it-->
       <div class="chatbox">
         <h3 th:text="'Chat: ' + ${chat.subject}"></h3>
 
-        <div th:each="participant : ${chat.participants}">
-<!--          border around the section and make it scrollable-->
-          <section class="message-scrollable" th:each="message : ${messages}">
-            <ul style="list-style-type:none">
-              <li th:if="${participant.id == message.sender_id}">
-                <ul style="list-style-type:none">
-                  <li>
-                    <span class="sender" th:text="${participant.username} + ': '"></span>
-                    <span class="message" th:text="${message.body}"></span>
-                  </li>
-                  <li><span class="createdAt" th:text="'Sent: ' + ${message.createdAt}"></span></li>
-                </ul>
-              </li>
-              <li th:unless="${participant.id != message.sender_id}"></li>
-            </ul>
-          </section>
+        <div class="message-scrollable">
+          <div th:each="participant : ${chat.participants}">
+            <section  th:each="message : ${messages}">
+              <ul style="list-style-type:none">
+                <li th:if="${participant.id == message.sender_id}">
+                  <ul style="list-style-type:none">
+                    <li>
+                      <span class="sender" th:text="${participant.username} + ': '"></span>
+                      <span class="message" th:text="${message.body}"></span>
+                    </li>
+                    <li><span class="createdAt" th:text="'Sent: ' + ${message.createdAt}"></span></li>
+                  </ul>
+                </li>
+                <li th:unless="${participant.id != message.sender_id}"></li>
+              </ul>
+            </section>
+          </div>
         </div>
-
-
         <form method="POST" th:action="${'/chat/' + chat.id}">
           <fieldset>
             <legend>Type your message...</legend>
@@ -40,6 +38,7 @@
             <input type="submit" />
           </fieldset>
         </form>
+
       </div>
     </main>
 
