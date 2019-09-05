@@ -86,6 +86,7 @@ public class ChatController {
     Chat ch = chatRepository.findById(id).get();
     m.addAttribute("chat", ch);
     m.addAttribute("messages", ch.getMessages());
+    m.addAttribute("user", p);
     return "chatbox";
   }
 
