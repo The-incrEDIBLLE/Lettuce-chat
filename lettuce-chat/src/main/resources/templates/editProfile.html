@@ -8,6 +8,7 @@
 
     <div th:replace="fragments/layout :: layout"></div>
     <div th:replace="fragments/nav :: nav"></div>
+
     <main>
       <div class="profile-box">
         <form th:method="POST" action="/profile/edit">
@@ -32,5 +33,6 @@
       </div>
     </main>
     <footer th:replace="fragments/footer :: footer"></footer>
+
   </body>
 </html>

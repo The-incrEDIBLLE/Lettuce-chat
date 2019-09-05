@@ -65,7 +65,13 @@ public class ChatController {
         if (loggedInUser != user) {
           matchedUsers.add(user);
         }
+        //adding if no match is found
+
       }
+    }
+    if (matchedUsers.isEmpty()){
+      System.out.println("Match is not found");
+      //System.exit(0);
     }
 
     int numberOfMatches = matchedUsers.size();
