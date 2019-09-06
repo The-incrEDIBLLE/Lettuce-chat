@@ -1,5 +1,7 @@
 # Lettuce Chat!
 
+Find us at http://lettucechat-env.ipmmcgymp6.us-east-2.elasticbeanstalk.com/
+
 ## Project Summary
 A chat to find a lunch buddy based on dietary restrictions.
 
