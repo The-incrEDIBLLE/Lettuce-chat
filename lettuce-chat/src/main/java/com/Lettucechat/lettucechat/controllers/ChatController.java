@@ -26,6 +26,7 @@ public class ChatController {
   @Autowired
   MessageRepository messageRepository;
 
+  //Add chat. The new chat is added to both the participants in the chat
   @PostMapping("/chat/create/{id}")
   public RedirectView createChat(@PathVariable long id, Principal p){
     ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
@@ -44,6 +45,7 @@ public class ChatController {
     return new RedirectView("/chat/" + newChat.getId());
   }
 
+  //Just add messages to existing chat. Do not create a new chat
   @PostMapping("/chat/{id}")
   public RedirectView addMessage(@PathVariable long id, String body, Principal p){
     ApplicationUser creator = applicationUserRepository.findByUsername(p.getName());
@@ -55,6 +57,7 @@ public class ChatController {
     return new RedirectView("/chat/" + id);
   }
 
+  //Get random match based on dietary restriction of the logged in user. Return a no match page if there are no matches
   @GetMapping("/users")
   public String getRandomUser(Model m, Principal p){
     ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
@@ -66,8 +69,6 @@ public class ChatController {
         if (loggedInUser != user) {
           matchedUsers.add(user);
         }
-        //adding if no match is found
-
       }
     }
     if (matchedUsers.isEmpty()){
@@ -82,6 +83,7 @@ public class ChatController {
 
   }
 
+  //Get messages for chats to display in chat history page
   @GetMapping("/chat/{id}")
   public String getChat(@PathVariable long id, Principal p, Model m) {
     Chat ch = chatRepository.findById(id).get();

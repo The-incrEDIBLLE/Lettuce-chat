@@ -23,6 +23,7 @@ public class ApplicationUser implements UserDetails {
   String bio;
   String dietaryRestriction;
 
+  //Set chats to save all chats the user is associated with
   @ManyToMany(cascade = CascadeType.ALL)
       @JoinTable(
           name = "userChat",
@@ -31,6 +32,7 @@ public class ApplicationUser implements UserDetails {
       )
   Set<Chat> chats;
 
+  //Set followedUsers works like 'add friend' feature in chat apps.
   @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(
       name = "follows",
@@ -42,6 +44,8 @@ public class ApplicationUser implements UserDetails {
 
   @ManyToMany(mappedBy = "followedUsers", cascade = CascadeType.ALL)
   Set<ApplicationUser> userFollowers;
+
+  //Getters and Setters
 
   public Set<Chat> getChats() {
     return chats;
@@ -91,13 +95,17 @@ public class ApplicationUser implements UserDetails {
     this.dietaryRestriction = dietaryRestriction;
   }
 
+  //Helper method to add friend
   public void addFollowing(ApplicationUser followedUser){
     followedUsers.add(followedUser);
   }
 
+  //Helper method to add chat
   public void addChat(Chat newChat){
     chats.add(newChat);
   }
+
+  //Constructors
   public ApplicationUser(){}
   public ApplicationUser(String username, String password, String firstName, String lastName, String imgUrl,
                          String bio,
@@ -111,7 +119,6 @@ public class ApplicationUser implements UserDetails {
     this.dietaryRestriction = dietaryRestriction;
 
   }
-
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {

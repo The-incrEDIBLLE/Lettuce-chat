@@ -28,6 +28,7 @@ public class ApplicationUserController {
   ApplicationUserRepository applicationUserRepository;
   private ApplicationUser service;
 
+  //Only add new users. Existing user name should return an alert when signing up with the same user name again
   @PostMapping("/users")
   public RedirectView createUser(String username, String password, String firstName, String lastName, String imgUrl,
                                  String bio,
@@ -46,6 +47,7 @@ public class ApplicationUserController {
     }
   }
 
+  //Profile page - signup takes users directly to profile page
   @GetMapping("/profile")
   public String getProfile(Principal p, Model m){
     ApplicationUser applicationUser = null;
@@ -53,8 +55,6 @@ public class ApplicationUserController {
       applicationUser = applicationUserRepository.findByUsername(p.getName());
     }
     m.addAttribute("viewedUser", applicationUser);
-//    System.out.println("--------------------------" + applicationUser.getId());
-//    why did you show yourself and then not work??
     m.addAttribute("user", p);
     return "profile";
   }
@@ -67,6 +67,7 @@ public class ApplicationUserController {
     return "profile";
   }
 
+  //Update profile
   @PutMapping("/profile/edit")
   public String updateUser(Model m, Principal p, long viewedUserId, String firstName, String lastName,
                            String imgUrl, String bio, String dietaryRestriction){
@@ -82,6 +83,7 @@ public class ApplicationUserController {
     return "profile";
   }
 
+  //Get mapping for profile information
   @GetMapping("/profile/edit")
   public String getEditProfileForm(Principal p, Model m){
     ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
@@ -90,6 +92,7 @@ public class ApplicationUserController {
     return "editProfile";
   }
 
+  //Get chat history for logged in user. Page displays subject and the other party in the chat
   @GetMapping("/mychats")
   public String getUsersChats(Model m, Principal p){
     ApplicationUser loggedInUser = applicationUserRepository.findByUsername(p.getName());
@@ -100,19 +103,12 @@ public class ApplicationUserController {
     return "allUserChats";
   }
 
+  //Delete profile
   @DeleteMapping("/profile")
   public RedirectView deleteUser(long viewedUserId) {
-
-//    ApplicationUser loggedInUser = applicationUserRepository.findById(viewedUserId).get();
-//    loggedInUser.setFollowedUsers(new HashSet<>());
-//    loggedInUser.setUserFollowers(new HashSet<>());
-//    loggedInUser.setChats(new HashSet<>());
-//
-//    applicationUserRepository.save(loggedInUser);
 
     applicationUserRepository.deleteById(viewedUserId);
     return new RedirectView("/logout");
   }
-
 
 }

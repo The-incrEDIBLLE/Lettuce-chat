@@ -24,15 +24,4 @@ public class JoachenController {
         return "team";
     }
 
-
-//    @GetMapping("/mychats")
-//    public String getMyChatsPage(){
-//        return "allUserChats";
-//    }
-
-//    @GetMapping("/")
-//    public String getTeamPage(Principal p, Model m){
-//        ApplicationUser applicationUser = applicationUserRepository.findByUsername(p.getName());
-//        return "error";
-//    }
 }
