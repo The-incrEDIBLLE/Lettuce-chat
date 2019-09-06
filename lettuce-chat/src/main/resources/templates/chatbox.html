@@ -15,22 +15,24 @@
         <h3 th:text="${chat.subject}"></h3>
 
         <div class="message-scrollable">
-          <div th:each="participant : ${chat.participants}">
+<!--          <div th:each="participant : ${chat.participants}">-->
             <section  th:each="message : ${messages}">
               <ul style="list-style-type:none">
-                <li th:if="${participant.id == message.sender_id}">
+<!--                <li th:if="${participant.id == message.sender_id}">-->
                   <ul style="list-style-type:none">
                     <li>
-                      <span class="sender" th:text="${participant.username} + ': '"></span>
-                      <span class="message" th:text="${message.body}"></span>
+<!--                      <span class="sender" th:text="${participant.username} + ': '"></span>-->
+<!--                      <span class="message" th:text="${message.body}"></span>-->
+                      <span class="message" th:text="${message.sender_id} + ' ' + ${message.body}"></span>
+
                     </li>
                     <li><span class="createdAt" th:text="'Sent: ' + ${message.createdAt}"></span></li>
                   </ul>
                 </li>
-                <li th:unless="${participant.id != message.sender_id}"></li>
+<!--                <li th:unless="${participant.id != message.sender_id}"></li>-->
               </ul>
             </section>
-          </div>
+<!--          </div>-->
         </div>
         <form method="POST" th:action="${'/chat/' + chat.id}">
           <textarea name="body" cols="40" rows="6" class="textbox" placeholder="Type your message..."></textarea>

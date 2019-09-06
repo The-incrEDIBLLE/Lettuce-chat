@@ -29,7 +29,9 @@ public class ChatController {
   public RedirectView createChat(@PathVariable long id, Principal p){
     ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
     ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
-    String subject = currentUser.getUsername().toUpperCase() + " & " + messageToUser.getUsername().toUpperCase() + " get lunch!";
+    String subject =
+        currentUser.getId() + ": " + currentUser.getUsername().toUpperCase() + " & " + messageToUser.getId() + ": " + messageToUser.getUsername().toUpperCase() +
+        " get lunch!";
     Chat newChat = new Chat(subject);
     chatRepository.save(newChat);
     currentUser.addFollowing(messageToUser);
