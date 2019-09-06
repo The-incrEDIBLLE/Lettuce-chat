@@ -66,17 +66,20 @@ A chat to find a lunch buddy based on dietary restrictions.
     * As a Codefellows Instructor who has to grade several projects I want easy to read, well commented, formatted code
  and a nice readme.md
  
+## Supporting Documents
 [Wireframes](https://docs.google.com/document/d/1OHEhdJKXkddfbMeBZ5oERfuttoAXWSy5koxSMDdyEaM/edit?usp=sharing)
+![DB Schema](https://github.com/The-incrEDIBLLE/Lettuce-chat/blob/dev/lettuce-chat/src/main/resources/static/images/LettuceChat_DBSchema.png)
 
 ## Instruction to run the app
-1. clone the git repository https://github.com/The-incrEDIBLLE/Lettuce-chat.git into your local folder
+1. Clone the git repository https://github.com/The-incrEDIBLLE/Lettuce-chat.git into your local folder
 2. Make sure you have PostgreSQL running on your machine. Create a database called lettuce_chat
 3. application.properties file in src/main/resources folder should be updated with your database name, user name and password.
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/<DB NAME>
-spring.datasource.username=<DATABASE USERNAME>
-spring.datasource.password=<DATABASE PASSWORD>
-#spring.jpa.hibernate.ddl-auto=create
+  - spring.datasource.url=jdbc:postgresql://localhost:5432/<DB NAME>
+  - spring.datasource.username=<DATABASE USERNAME>
+  - spring.datasource.password=<DATABASE PASSWORD>
+  - #spring.jpa.hibernate.ddl-auto=create
+  
 4. Run $gradle bootRun from your local folder in terminal
 
 ## Git Process 
