@@ -1,5 +1,7 @@
 # Lettuce Chat!
 
+Find us at http://lettucechat-env.ipmmcgymp6.us-east-2.elasticbeanstalk.com/
+
 ## Project Summary
 A chat to find a lunch buddy based on dietary restrictions.
 
@@ -34,7 +36,7 @@ A chat to find a lunch buddy based on dietary restrictions.
     * Create user profile, can edit and delete profile.
     * Generate a random user to connect with - Match page
     * Ability to add chats to the history 
-    * Can click chat in chat history and it opens chat page
+    * Can click chat in chat history to open chat page
 ## Stretch Goals
     * Real-Time chatting
     * Yelp API suggestion on chatbox
@@ -42,7 +44,7 @@ A chat to find a lunch buddy based on dietary restrictions.
 
 ## User Stories
 * USER
-    * I want an intuitive U/I that is easily understood (with instructions on using the app) 
+    * I want an intuitive UI that is easily understood (with instructions on using the app) 
     * I want a visually appealing site. 
     * I want to meet up with people and eat/drink/etc.
     * I want to be able to chat before I meet up. 
@@ -64,6 +66,22 @@ A chat to find a lunch buddy based on dietary restrictions.
     * As a Codefellows Instructor who has to grade several projects I want easy to read, well commented, formatted code
  and a nice readme.md
  
+## Supporting Documents
+[Wireframes](https://docs.google.com/document/d/1OHEhdJKXkddfbMeBZ5oERfuttoAXWSy5koxSMDdyEaM/edit?usp=sharing)
+![DB Schema](https://github.com/The-incrEDIBLLE/Lettuce-chat/blob/dev/lettuce-chat/src/main/resources/static/images/LettuceChat_DBSchema.png)
+
+## Instruction to run the app
+1. Clone the git repository https://github.com/The-incrEDIBLLE/Lettuce-chat.git into your local folder
+2. Make sure you have PostgreSQL running on your machine. Create a database called lettuce_chat
+3. application.properties file in src/main/resources folder should be updated with your database name, user name and password.
+
+  - spring.datasource.url=jdbc:postgresql://localhost:5432/<DB NAME>
+  - spring.datasource.username=<DATABASE USERNAME>
+  - spring.datasource.password=<DATABASE PASSWORD>
+  - #spring.jpa.hibernate.ddl-auto=create
+  
+4. Run $gradle bootRun from your local folder in terminal
+
 ## Git Process 
     * Separate dev and master branches
     * Team members will work on individual branches merging into dev branch
@@ -72,6 +90,17 @@ A chat to find a lunch buddy based on dietary restrictions.
     * Commit to master branch when a feature is completed and tested.
     * A team member other than the developer will review pull requests from the developer and merge.
  
+ ## Resources
+    * icons for devs - https://icon-icons.com/
+    * https://www.w3schools.com/
+    * https://www.geeksforgeeks.org/java/
+    * https://getbootstrap.com/
+    * https://pngtree.com/freepng/background-material-design-for-fruits-and-vegetables_3637134.html
+    * https://codepen.io/jasondavis/pen/vyMJPp
+    * https://bootstrapious.com/p/team-page
+    * https://www.pinterest.com/pin/814025701369581277/?autologin=true&nic=1
+    * https://www.needpix.com/photo/download/380408/lettuce-vegetables-food-organic-free-pictures-free-photos-free-images-royalty-free
+    
  
 ## Team members
     * Nhu Trinh

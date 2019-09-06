@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+div nav {
+  background-color: rgb(204, 235, 204);
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-flex;
+  line-height: 60px;
+}
+
+nav ul li a {
+  padding: 0.5em 1.5em 0.5em 1.5em;
+  /* color: rgba(9, 65, 27, 0.5); */
+  color: rgb(104, 81, 81);
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  -moz-transition: none;
+  -webkit-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+  color: purple;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  height: 100vh;
+  margin-top: -20px;
+  background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url("/images/greenveg.png") center;
+  background-size: 120%, 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  text-align: center;
+  margin: auto;
+  color: rgb(104, 81, 81);
+  border: 2px dotted black;
+  max-width: 500px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
+}
+
+/* All chats styles */
+.each-chat {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.each-chat > p > span > a {
+    color: orange;
+}
+
+.each-chat > p > span > a:hover {
+    color: purple;
+    text-decoration: none;
+}
+
+/* Chatbox styles */
+.chatbox {
+  margin-top: 30px;
+  border: 1px double black;
+  height: 600px;
+  width: 35%;
+  background-color:  rgba(244, 186, 116, 0.5);
+  text-align: center;
+  padding: 5px 5px;
+}
+
+.chatbox > h3 {
+  font-size: 16px;
+  color: rgb(104, 81, 81);
+}
+
+.message-scrollable {
+  text-align: left;
+  border: 1px double black;
+  background-color: rgba(252, 251, 251, 0.9);
+  height: 60%;
+  width: 90%;
+  overflow-y: scroll;
+  margin: auto;
+}
+
+.textbox {
+  margin-top: 15px;
+  border: 1px solid black;
+  background-color: rgba(255,255,255,0.9);
+  height: 20%;
+  width: 90%;
+}
+
+.sender {
+  font-weight: bold;
+}
+
+.createdAt {
+  font-style: italic;
+  color: grey;
+  font-size: 8px;
+}
+
+.box-match {
+  background-color: white;
+  max-width: 500px;
+  margin: auto;
+  padding: 100px;
+}
+
+/* Footer styles */
+footer {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(240, 231, 220);
+}
+
+footer > a {
+  color: saddlebrown;
+  text-decoration: none;
+  font-size: 1.6em;
+}
+
+footer > a:hover {
+  color: purple;
+  text-decoration: none;
+}

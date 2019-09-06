@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
   <title>Lettuce Chat</title>
 </head>
-<body>
 
-</body>
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="box">
+        <h3>My Chats</h3>
+        <div th:each="chat : ${chats}" class="each-chat">
+          <p>Chat: <span th:text="${chat.subject}"></span></p>
+          <p>
+           <span th:each="participant : ${chat.participants}">
+             <a th:if="${participant.username != user.name}" th:href="${'/chat/' + chat.id}">Enter Chat</a>
+             <a th:if="${participant.username != user.name}" th:href="${'/users/' + participant.id}">View Profile</a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+  </body>
+
 </html>

@@ -1,0 +1,17 @@
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+         <meta charset="UTF-8">
+         <title>Lettuce Chat</title>
+         <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
+        <body>
+          <div th:replace="fragments/layout :: layout"></div>
+          <div th:replace="fragments/nav :: nav"></div>
+        <main>
+          <div class="box-match">
+              <img src="/images/nomatchface.png" height="100px" width="100px">
+            <br> <h5>Sorry, there are no more matches right now!</h5>
+          </div>
+        </main>
+         <footer th:replace="fragments/footer :: footer"></footer>
+        </body>
+    </html>

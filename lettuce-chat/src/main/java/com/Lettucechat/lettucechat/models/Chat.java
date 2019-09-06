@@ -3,47 +3,65 @@ package com.Lettucechat.lettucechat.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Chat {
-
-  // TODO: Many to many relationship with application user
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
-  long creator_id;
-  long participant_id;
   String subject;
-  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat_id")
+  @ManyToMany(mappedBy = "chats")
+  Set<ApplicationUser> participants;
+
+  //List of messages in a chat
+  @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat", cascade = CascadeType.ALL)
   List<Message> messages;
 
+  //Helper method to add participant to chat
+  public void addParticipant(ApplicationUser participant){
+    participants.add(participant);
+  }
+
+  //Constructors
   public Chat(){}
-  public Chat(long creator_id, long participant_id, String subject){
-    this.creator_id = creator_id;
-    this.participant_id = participant_id;
+
+  public Chat(String subject){
     this.subject = subject;
     this.messages = new ArrayList<>();
+  }
+
+  //Getters and setters
+  public Set<ApplicationUser> getParticipants() {
+    return this.participants;
   }
 
   public long getId() {
     return id;
   }
 
-  public long getCreator_id() {
-    return creator_id;
-  }
-
-  public long getParticipant_id() {
-    return participant_id;
-  }
-
   public String getSubject() {
-    return subject;
+    return this.subject;
   }
 
   public List<Message> getMessages() {
-    return messages;
+    return this.messages;
   }
 
-  // TODO: fn to add messages to the chat
+  //Helper method to add messages
+  public void addMessage(Message msg){
+    messages.add(msg);
+  }
+
+  public void setMessages(List<Message> messages) {
+    this.messages = messages;
+  }
+
+  public void setParticipants(Set<ApplicationUser> participants) {
+    this.participants = participants;
+  }
+  public void setSubject(String subject) {
+    this.subject = subject;
+  }
+
 }

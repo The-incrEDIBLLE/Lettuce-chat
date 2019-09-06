@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Lettuce Chat</title>
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
+  <link rel="stylesheet" href="profile.css" type="text/css">
+
 </head>
-<body>
-<div th:replace="fragments/nav :: nav"></div>
-<div class="container">
-  <h1>Profile here</h1>
-  <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
-</div>
-<a href="/chat/create">Send Message</a>
-<a href="/users">Next Match</a>
-<!--<div>
-  <form method="GET" th:action="${'/users'}">
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="container profile-box">
+        <div th:replace="fragments/user :: profile(userToProfile=${matchedUser})"></div>
+        <section class="profile-btns">
+          <form method="POST" th:action="${'/chat/create/' + matchedUser.id}">
+            <input type="submit" value="Create Chat">
+          </form>
+          <a href="/users">Next Match</a>
+        </section>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
-    <input type="submit" value="Send Message"/>
-    <input type="submit" value="Next Match"/>
-
-
-  </form>
-</div>-->
-</body>
+  </body>
 </html>

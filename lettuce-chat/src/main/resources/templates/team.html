@@ -1,10 +1,79 @@
+<!--https://bootstrapious.com/p/team-page-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>About the Team</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
+  <title>The IncrEDIBLLES</title>
+  <link rel="stylesheet" href="team.css" type="text/css">
+
 </head>
 <body>
-  <h1>Team page here</h1>
+<div th:replace="fragments/layout :: layout"></div>
+<div th:replace="fragments/nav :: nav"></div>
+
+<div class="container py-5">
+  <div class="row text-center text-white">
+    <div class="col-lg-8 mx-auto">
+      <h1 class="display-4">The IncrEDIBLLES</h1>
+      <p class="lead mb-0">Meet the Amazing Devs!</p>
+      </p>
+    </div>
+  </div>
+</div><!-- End -->
+
+
+<div class="container">
+  <div class="row text-center">
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/nhu.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Nhu Trinh</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/Nhuuu" target="_blank"><img src="images/github.png"
+                                                                                height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/padma.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Padma Ganapathi</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/gpadmapriya" target="_blank"><img src="images/github.png"
+                                                                                      height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/roman.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Roman Gebrehiwot</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/rttgg" target="_blank"><img src="images/github.png"
+                                                                                height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+
+    <!-- Team item -->
+    <div class="col-xl-3 col-sm-6 mb-5">
+      <div class="bg-white rounded shadow-sm py-5 px-4"><img src="images/joachen.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+        <h5 class="mb-0">Joachen Busch</h5><span class="small text-uppercase text-muted">Software Developer</span>
+        <ul class="social mb-0 list-inline mt-3">
+          <li class="list-inline-item"><a href="https://github.com/JBusch2010" target="_blank"><img src="images/github.png"
+                                                                                     height="100px" width="100px"><i class="fa fa-github"></i></a><br>Github</li>
+        </ul>
+      </div>
+    </div><!-- End -->
+  </div>
+</div>
+
+  <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

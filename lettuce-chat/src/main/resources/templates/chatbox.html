@@ -1,20 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
   <title>Lettuce Chat</title>
 </head>
-<body>
-<div th:replace="fragments/nav :: nav"></div>
-<h4>Type a message...</h4>
 
-<form method="POST" action="/chat/create">
-  <fieldset>
-    <label>Text: </label>
-    <p><textarea name="body" cols="40" rows="10"></textarea></p>
-    <input type="submit" />
-  </fieldset>
+  <body>
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+    <main>
+      <div class="chatbox">
+        <h3 th:text="${chat.subject}"></h3>
 
-</form>
-</body>
+        <div class="message-scrollable">
+          <section  th:each="message : ${messages}">
+            <ul style="list-style-type:none">
+                <ul style="list-style-type:none">
+                  <li>
+                    <span class="message" th:text="${message.sender_id} + ': ' + ${message.body}"></span>
+
+                  </li>
+                  <li><span class="createdAt" th:text="'Sent: ' + ${message.createdAt}"></span></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <form method="POST" th:action="${'/chat/' + chat.id}">
+          <textarea name="body" cols="40" rows="6" class="textbox" placeholder="Type your message..."></textarea>
+          <input type="submit" class="btn"/>
+        </form>
+
+      </div>
+    </main>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+  </body>
 </html>

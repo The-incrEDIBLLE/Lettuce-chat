@@ -13,19 +13,22 @@ public class Message {
   long sender_id;
   String body;
   String createdAt;
-  @ManyToOne
-  Chat chat_id;
 
+  @ManyToOne
+  @JoinColumn(name="chat")
+  Chat chat;
+
+  //Constructor
   public Message(){}
-  public Message(long sender_id, String body, Chat chat_id){
+  public Message(long sender_id, String body, Chat chat){
     this.sender_id = sender_id;
     this.body = body;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
     this.createdAt = sdf.format(new Timestamp(System.currentTimeMillis()).getTime());
-    this.chat_id = chat_id;
+    this.chat = chat;
   }
 
-
+//Getters and setters
   public long getId() {
     return id;
   }
@@ -42,8 +45,8 @@ public class Message {
     return createdAt;
   }
 
-  public Chat getChat_id() {
-    return chat_id;
+  public Chat getChat() {
+    return chat;
   }
 
 }

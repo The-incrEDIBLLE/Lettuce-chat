@@ -2,21 +2,39 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Profile</title>
+  <title>Lettuce Chat</title>
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
+  <link rel="stylesheet" href="/profile.css" type="text/css">
 </head>
 <body>
+  <div th:replace="fragments/layout :: layout"></div>
   <div th:replace="fragments/nav :: nav"></div>
-  <div class="container">
-    <h1>Profile here</h1>
-    <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
-  </div>
-  <div>
-    <form method="GET" th:action="${'/users'}">
 
-      <input type="submit" value="View Matches"/>
+  <main>
+    <div class="container profile-box">
+      <div th:replace="fragments/user :: profile(userToProfile=${viewedUser})"></div>
 
+      <section class="profile-btns" th:if="${viewedUser.username == user.name}">
+        <div>
+          <form method="GET" th:action="${'/users'}">
+            <input type="submit" value="Find friends" class="btn"/>
+          </form>
+        </div>
+        <div>
+          <a href="/profile/edit"><button class="btn">Edit Profile</button></a>
+        </div>
+        <div class="myform">
+          <form method="POST" action="/profile">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
+            <input type="submit" value="Delete Profile" class="btn"/>
+          </form>
+        </div>
+      </section>
+    </div>
 
-    </form>
-  </div>
+  </main>
+  <footer th:replace="fragments/footer :: footer"></footer>
+
 </body>
 </html>

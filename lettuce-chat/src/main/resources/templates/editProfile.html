@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/lettuce-768237_1280.png">
+  <title>Lettuce Chat</title>
+
+</head>
+  <body>
+
+    <div th:replace="fragments/layout :: layout"></div>
+    <div th:replace="fragments/nav :: nav"></div>
+
+    <main>
+      <div class="box">
+        <h3>Edit your profile</h3>
+        <hr />
+        <form th:method="POST" action="/profile/edit">
+          <input type="hidden" name="_method" value="PUT">
+          <input type="hidden" name="viewedUserId" th:value="${viewedUser.id}">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="firstName" th:value="${viewedUser.firstName}"><br>
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="lastName"  th:value="${viewedUser.lastName}"><br>
+          <label for="imgUrl">Image URL</label>
+          <input id="imgUrl" type="url" name="imgUrl"  th:value="${viewedUser.imgUrl}"><br>
+          <label for="bio">Bio:</label>
+          <input type="text" name="bio" id="bio" th:value="${viewedUser.bio}"><br>
+          <label for="dietaryRestriction">Dietary Restriction</label>
+          <select name="dietaryRestriction" id="dietaryRestriction"><br>
+            <option value="None">None</option>
+            <option value="Diabetic">Diabetic</option>
+            <option value="Keto">Keto</option>
+            <option value="Gluten-Free">Gluten-Free</option>
+            <option value="Lactose-Free">Lactose-Free</option>
+            <option value="Paleo">Paleo</option>
+            <option value="Pescatarian">Pescatarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Vegetarian">Vegetarian</option>
+          </select><br>
+          <input type="submit" value="edit profile"/>
+        </form>
+      </div>
+    </main>
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+  </body>
+</html>
