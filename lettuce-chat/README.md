@@ -1,5 +1,7 @@
 # Lettuce Chat!
 
+Find us at http://lettucechat-env.ipmmcgymp6.us-east-2.elasticbeanstalk.com/
+
 ## Project Summary
 A chat to find a lunch buddy based on dietary restrictions.
 
@@ -34,7 +36,7 @@ A chat to find a lunch buddy based on dietary restrictions.
     * Create user profile, can edit and delete profile.
     * Generate a random user to connect with - Match page
     * Ability to add chats to the history 
-    * Can click chat in chat history and it opens chat page
+    * Can click chat in chat history to open chat page
 ## Stretch Goals
     * Real-Time chatting
     * Yelp API suggestion on chatbox
@@ -42,7 +44,7 @@ A chat to find a lunch buddy based on dietary restrictions.
 
 ## User Stories
 * USER
-    * I want an intuitive U/I that is easily understood (with instructions on using the app) 
+    * I want an intuitive UI that is easily understood (with instructions on using the app) 
     * I want a visually appealing site. 
     * I want to meet up with people and eat/drink/etc.
     * I want to be able to chat before I meet up. 
@@ -64,6 +66,8 @@ A chat to find a lunch buddy based on dietary restrictions.
     * As a Codefellows Instructor who has to grade several projects I want easy to read, well commented, formatted code
  and a nice readme.md
  
+[Wireframes](https://docs.google.com/document/d/1OHEhdJKXkddfbMeBZ5oERfuttoAXWSy5koxSMDdyEaM/edit?usp=sharing)
+
 ## Git Process 
     * Separate dev and master branches
     * Team members will work on individual branches merging into dev branch
@@ -72,7 +76,7 @@ A chat to find a lunch buddy based on dietary restrictions.
     * Commit to master branch when a feature is completed and tested.
     * A team member other than the developer will review pull requests from the developer and merge.
  
- ## Resoruces
+ ## Resources
     * icons for devs - https://icon-icons.com/
     * https://www.w3schools.com/
     * https://www.geeksforgeeks.org/java/
