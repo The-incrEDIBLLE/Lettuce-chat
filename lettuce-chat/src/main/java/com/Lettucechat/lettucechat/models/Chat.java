@@ -14,23 +14,24 @@ public class Chat {
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
+  //List of messages in a chat
   @OneToMany(fetch = FetchType.EAGER, mappedBy = "chat", cascade = CascadeType.ALL)
   List<Message> messages;
 
+  //Helper method to add participant to chat
   public void addParticipant(ApplicationUser participant){
     participants.add(participant);
   }
-  public Chat(){}
 
-  public void setSubject(String subject) {
-    this.subject = subject;
-  }
+  //Constructors
+  public Chat(){}
 
   public Chat(String subject){
     this.subject = subject;
     this.messages = new ArrayList<>();
   }
 
+  //Getters and setters
   public Set<ApplicationUser> getParticipants() {
     return this.participants;
   }
@@ -47,6 +48,7 @@ public class Chat {
     return this.messages;
   }
 
+  //Helper method to add messages
   public void addMessage(Message msg){
     messages.add(msg);
   }
@@ -57,6 +59,9 @@ public class Chat {
 
   public void setParticipants(Set<ApplicationUser> participants) {
     this.participants = participants;
+  }
+  public void setSubject(String subject) {
+    this.subject = subject;
   }
 
 }

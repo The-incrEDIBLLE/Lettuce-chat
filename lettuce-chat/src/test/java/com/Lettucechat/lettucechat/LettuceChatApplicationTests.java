@@ -48,15 +48,11 @@ public class LettuceChatApplicationTests {
 	}
 
 	@Test
-	public void testSignupRoute_containsForm() throws Exception {
+	public void testLoginRoute() throws Exception {
 		this.mockMvc
-				.perform(MockMvcRequestBuilders.get("/signup"))
-				.andDo(MockMvcResultHandlers.print())
-				.andExpect(MockMvcResultMatchers.status().is(200))
+				.perform(MockMvcRequestBuilders.get("/login"))
 				.andExpect(MockMvcResultMatchers.content().string(
-						org.hamcrest.Matchers.containsString("<form method=\"POST\" action=\"/users\">")));
+						org.hamcrest.Matchers.containsString("")));
 	}
-
-
 }
 

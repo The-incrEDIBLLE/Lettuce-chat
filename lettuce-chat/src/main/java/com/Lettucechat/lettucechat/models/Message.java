@@ -18,6 +18,7 @@ public class Message {
   @JoinColumn(name="chat")
   Chat chat;
 
+  //Constructor
   public Message(){}
   public Message(long sender_id, String body, Chat chat){
     this.sender_id = sender_id;
@@ -27,7 +28,7 @@ public class Message {
     this.chat = chat;
   }
 
-
+//Getters and setters
   public long getId() {
     return id;
   }
