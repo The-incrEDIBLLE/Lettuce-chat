@@ -114,5 +114,10 @@ public class ApplicationUserController {
     return new RedirectView("/logout");
   }
 
+  @GetMapping("/team")
+  public String getTeamPage(){
+    return "team";
+  }
+
 
 }
