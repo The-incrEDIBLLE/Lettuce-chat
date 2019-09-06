@@ -1,5 +1,7 @@
 # Lettuce Chat!
 
+Find us at http://lettucechat-env.ipmmcgymp6.us-east-2.elasticbeanstalk.com/
+
 ## Project Summary
 A chat to find a lunch buddy based on dietary restrictions.
 
@@ -64,6 +66,8 @@ A chat to find a lunch buddy based on dietary restrictions.
     * As a Codefellows Instructor who has to grade several projects I want easy to read, well commented, formatted code
  and a nice readme.md
  
+[Wireframes](https://docs.google.com/document/d/1OHEhdJKXkddfbMeBZ5oERfuttoAXWSy5koxSMDdyEaM/edit?usp=sharing)
+
 ## Git Process 
     * Separate dev and master branches
     * Team members will work on individual branches merging into dev branch
