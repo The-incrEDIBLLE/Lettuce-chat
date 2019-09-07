@@ -31,6 +31,7 @@ public class ApplicationUserTest {
     @Autowired
     ChatRepository chatRepository;
 
+    //Happy path tests. These constructors, getters and setters are not called in edge cases
     @Test
     public void testApplicationUser_constructor() {
         ApplicationUser newUser = new ApplicationUser("testuser21", "password", "test1", "user", "url", "bio", "vegetarian");
