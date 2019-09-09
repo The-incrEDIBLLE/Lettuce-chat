@@ -40,7 +40,6 @@ public class ApplicationUserController {
       SecurityContextHolder.getContext().setAuthentication(authentication);
       return new RedirectView("/profile");
     } else {
-      // TODO: send modal alert for username already exists
       return new RedirectView("/");
     }
   }

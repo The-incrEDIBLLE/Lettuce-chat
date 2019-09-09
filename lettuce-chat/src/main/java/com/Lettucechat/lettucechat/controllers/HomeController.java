@@ -15,7 +15,6 @@ public class HomeController {
   @Autowired
   ApplicationUserRepository applicationUserRepository;
 
-  // TODO: when logged in, go to match page
   @GetMapping("/")
   public String getRoot(Principal p, Model m){
     ApplicationUser applicationUser = null;
@@ -37,4 +36,8 @@ public class HomeController {
     return new RedirectView("/");
   }
 
+  @GetMapping("/team")
+  public String getTeamPage(){
+    return "team";
+  }
 }
