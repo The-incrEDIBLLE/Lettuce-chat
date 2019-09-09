@@ -26,6 +26,8 @@ public class ChatController {
   MessageRepository messageRepository;
 
   //Add chat. The new chat is added to both the participants in the chat
+  // I'd prefer this to just be /chats, and take the id of the user as a variable in the body, not in the path.
+  // It's more semantically RESTful that way; the fact that it's a create is handles by the fact that it's a post request.
   @PostMapping("/chat/create/{id}")
   public RedirectView createChat(@PathVariable long id, Principal p){
     ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
@@ -35,6 +37,7 @@ public class ChatController {
         " get lunch!";
     Chat newChat = new Chat(subject);
     chatRepository.save(newChat);
+    // why does following exist? is it used for anything in your application?
     currentUser.addFollowing(messageToUser);
     currentUser.addChat(newChat);
     applicationUserRepository.save(currentUser);

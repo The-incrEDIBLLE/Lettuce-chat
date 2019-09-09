@@ -16,6 +16,7 @@ public class HomeController {
   ApplicationUserRepository applicationUserRepository;
 
   // TODO: when logged in, go to match page
+  // you can achieve this in the WebSecurityConfig by setting a defaultSuccessUrl!
   @GetMapping("/")
   public String getRoot(Principal p, Model m){
     ApplicationUser applicationUser = null;
