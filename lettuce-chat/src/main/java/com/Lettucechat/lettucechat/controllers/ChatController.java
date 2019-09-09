@@ -30,6 +30,10 @@ public class ChatController {
   public RedirectView createChat(@PathVariable long id, Principal p){
     ApplicationUser currentUser = applicationUserRepository.findByUsername(p.getName());
     ApplicationUser messageToUser = applicationUserRepository.findById(id).get();
+
+    //Kevin review
+    //we can eliminate .getId() if we don't want to see the id of the user in the chatbox.
+    // Or i could have write interface function in ApplicationUserRepo
     String subject =
         currentUser.getId() + ": " + currentUser.getUsername().toUpperCase() + " & " + messageToUser.getId() + ": " + messageToUser.getUsername().toUpperCase() +
         " get lunch!";
