@@ -41,6 +41,7 @@ public class ApplicationUserController {
       return new RedirectView("/profile");
     } else {
       // TODO: send modal alert for username already exists
+      // Take to error page or display user already exists message or throw and handle exception
       return new RedirectView("/");
     }
   }
