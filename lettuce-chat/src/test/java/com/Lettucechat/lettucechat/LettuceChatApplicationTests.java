@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -49,10 +50,11 @@ public class LettuceChatApplicationTests {
 
 	@Test
 	public void testLoginRoute() throws Exception {
-		this.mockMvc
-				.perform(MockMvcRequestBuilders.get("/login"))
-				.andExpect(MockMvcResultMatchers.content().string(
-						org.hamcrest.Matchers.containsString("")));
+
+		//test modal to return the correct redirect url (both login and signup routes)
+		MockHttpServletResponse response = this.mockMvc.perform(MockMvcRequestBuilders.get("#")).andReturn().getResponse();
+		assertTrue(response.getRedirectedUrl().equals("http://localhost/login"));
 	}
+
 }
 
