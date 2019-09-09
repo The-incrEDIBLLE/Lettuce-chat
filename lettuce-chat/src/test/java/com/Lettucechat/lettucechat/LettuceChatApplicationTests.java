@@ -52,6 +52,7 @@ public class LettuceChatApplicationTests {
 	public void testLoginRoute() throws Exception {
 
 		//test modal to return the correct redirect url (both login and signup routes)
+		// cool! could do an assertEquals here instead, to be a bit more semantic
 		MockHttpServletResponse response = this.mockMvc.perform(MockMvcRequestBuilders.get("#")).andReturn().getResponse();
 		assertTrue(response.getRedirectedUrl().equals("http://localhost/login"));
 	}

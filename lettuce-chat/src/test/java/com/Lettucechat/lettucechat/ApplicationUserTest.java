@@ -70,6 +70,8 @@ public class ApplicationUserTest {
         ApplicationUser newUser1 = new ApplicationUser("testuser23", "password", "test11", "user1", "url1", "bio1", "vegetarian");
         ApplicationUser newUser2 = new ApplicationUser("testuser24", "password", "test12", "user2", "url2", "bio2", "vegetarian");
 
+        // This piece shouldn't be necessary; the fact that you have to do this in your test is an indicator that you should set that in your constructor.
+        // (And same for things like chats where you find yourself doing this same bit of logic.)
         newUser1.setFollowedUsers(new HashSet<>());
         newUser1.addFollowing(newUser2);
         assertTrue(newUser1.getFollowedUsers().contains(newUser2));

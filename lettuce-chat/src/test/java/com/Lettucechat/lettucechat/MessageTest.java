@@ -34,6 +34,7 @@ public class MessageTest {
     @Test
     public void testMessage_constructor() {
         Message newMessage = new Message();
+        // this is always going to be true--you'd get a compilation error otherwise!
         assertTrue(newMessage instanceof Message);
 
         Chat newChat = new Chat();
@@ -43,6 +44,8 @@ public class MessageTest {
         assertTrue(anotherMessage instanceof Message);
         assertEquals(anotherMessage.getSender(), u);
 
+        // oof, if this happens to span a second boundary, this will break! I'd prefer checking that they're similar,
+        // or getting the milliseconds and asserting that they're close to each other.
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
         String createdAt = sdf.format(new Timestamp(System.currentTimeMillis()).getTime());
 
@@ -55,6 +58,7 @@ public class MessageTest {
         ApplicationUser u = new ApplicationUser();
         Message anotherMessage = new Message(u, "test message", newChat);
 
+        // could be an assertEquals instead
         assertTrue(anotherMessage.getBody().equals("test message"));
         assertEquals(anotherMessage.getId(), 0);
         assertEquals(anotherMessage.getSender(), u);
