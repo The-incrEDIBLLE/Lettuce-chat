@@ -6,3 +6,6 @@ public interface ApplicationUserRepository extends JpaRepository<ApplicationUser
   public ApplicationUser findByUsername(String username);
 
 }
+//Kevin review
+//we can eliminate .getId() if we don't want to see the id of the user in the chatbox.
+// Or i could have write interface function in ApplicationUserRepo
