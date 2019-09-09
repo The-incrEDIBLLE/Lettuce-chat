@@ -12,10 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
-
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Set;
 
 @Controller
@@ -53,8 +51,6 @@ public class ApplicationUserController {
       applicationUser = applicationUserRepository.findByUsername(p.getName());
     }
     m.addAttribute("viewedUser", applicationUser);
-//    System.out.println("--------------------------" + applicationUser.getId());
-//    why did you show yourself and then not work??
     m.addAttribute("user", p);
     return "profile";
   }
@@ -99,16 +95,11 @@ public class ApplicationUserController {
     m.addAttribute("user", p);
     return "allUserChats";
   }
-
+  //CascadeType.all - for deletion - https://www.baeldung.com/delete-with-hibernate
   @DeleteMapping("/profile")
   public RedirectView deleteUser(long viewedUserId) {
 
-//    ApplicationUser loggedInUser = applicationUserRepository.findById(viewedUserId).get();
-//    loggedInUser.setFollowedUsers(new HashSet<>());
-//    loggedInUser.setUserFollowers(new HashSet<>());
-//    loggedInUser.setChats(new HashSet<>());
-//
-//    applicationUserRepository.save(loggedInUser);
+
 
     applicationUserRepository.deleteById(viewedUserId);
     return new RedirectView("/logout");

@@ -10,7 +10,9 @@ public class Chat {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
+
   String subject;
+
   @ManyToMany(mappedBy = "chats")
   Set<ApplicationUser> participants;
 
