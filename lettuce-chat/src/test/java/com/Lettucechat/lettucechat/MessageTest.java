@@ -38,9 +38,10 @@ public class MessageTest {
 
         Chat newChat = new Chat();
 
-        Message anotherMessage = new Message(1, "test message", newChat);
+        ApplicationUser u = new ApplicationUser();
+        Message anotherMessage = new Message(u, "test message", newChat);
         assertTrue(anotherMessage instanceof Message);
-        assertEquals(anotherMessage.getSender_id(), 1);
+        assertEquals(anotherMessage.getSender(), u);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
         String createdAt = sdf.format(new Timestamp(System.currentTimeMillis()).getTime());
@@ -51,11 +52,12 @@ public class MessageTest {
     @Test
     public void testMessage_settersandgetters() {
         Chat newChat = new Chat();
-        Message anotherMessage = new Message(1, "test message", newChat);
+        ApplicationUser u = new ApplicationUser();
+        Message anotherMessage = new Message(u, "test message", newChat);
 
         assertTrue(anotherMessage.getBody().equals("test message"));
         assertEquals(anotherMessage.getId(), 0);
-        assertEquals(anotherMessage.getSender_id(), 1);
+        assertEquals(anotherMessage.getSender(), u);
         assertEquals(anotherMessage.getChat(), newChat);
     }
 

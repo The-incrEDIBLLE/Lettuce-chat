@@ -74,13 +74,14 @@ A chat to find a lunch buddy based on dietary restrictions.
 1. Clone the git repository https://github.com/The-incrEDIBLLE/Lettuce-chat.git into your local folder
 2. Make sure you have PostgreSQL running on your machine. Create a database called lettuce_chat
 3. application.properties file in src/main/resources folder should be updated with your database name, user name and password.
+```
+- spring.datasource.url=jdbc:postgresql://localhost:5432/<DB NAME>
+- spring.datasource.username=<DATABASE USERNAME>
+- spring.datasource.password=<DATABASE PASSWORD>
+- spring.jpa.hibernate.ddl-auto=create
+```
 
-  - spring.datasource.url=jdbc:postgresql://localhost:5432/<DB NAME>
-  - spring.datasource.username=<DATABASE USERNAME>
-  - spring.datasource.password=<DATABASE PASSWORD>
-  - #spring.jpa.hibernate.ddl-auto=create
-  
-4. Run $gradle bootRun from your local folder in terminal
+4. Run `./gradlew bootRun` from your local folder in terminal
 
 ## Git Process 
     * Separate dev and master branches

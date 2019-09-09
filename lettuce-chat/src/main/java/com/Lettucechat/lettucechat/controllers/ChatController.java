@@ -51,7 +51,7 @@ public class ChatController {
   public RedirectView addMessage(@PathVariable long id, String body, Principal p){
     ApplicationUser creator = applicationUserRepository.findByUsername(p.getName());
     Chat ch = chatRepository.findById(id).get();
-    Message newMessage = new Message(creator.getId(), body, ch);
+    Message newMessage = new Message(creator, body, ch);
     messageRepository.save(newMessage);
     ch.addMessage(newMessage);
     chatRepository.save(ch);

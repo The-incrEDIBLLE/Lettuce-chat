@@ -10,7 +10,8 @@ public class Message {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   long id;
-  long sender_id;
+  // why not the actual applicationuser?
+  ApplicationUser sender;
   String body;
   String createdAt;
 
@@ -20,8 +21,8 @@ public class Message {
 
   //Constructor
   public Message(){}
-  public Message(long sender_id, String body, Chat chat){
-    this.sender_id = sender_id;
+  public Message(ApplicationUser sender, String body, Chat chat){
+    this.sender = sender;
     this.body = body;
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
     this.createdAt = sdf.format(new Timestamp(System.currentTimeMillis()).getTime());
@@ -33,8 +34,8 @@ public class Message {
     return id;
   }
 
-  public long getSender_id() {
-    return sender_id;
+  public ApplicationUser getSender() {
+    return sender;
   }
 
   public String getBody() {
